@@ -34,8 +34,8 @@ public class Usuario  implements java.io.Serializable {
      private Set publicacionsForIdusuario = new HashSet(0);
 
     public Usuario() {
+        nombre = "Visitante";
     }
-
 	
     public Usuario(int idusuario, String nombre, String contrasena, String correo) {
         this.idusuario = idusuario;
@@ -55,9 +55,7 @@ public class Usuario  implements java.io.Serializable {
        this.publicacionsForIdusuario = publicacionsForIdusuario;
     }
    
-     @Id 
-
-    
+    @Id     
     @Column(name="idusuario", unique=true, nullable=false)
     public int getIdusuario() {
         return this.idusuario;

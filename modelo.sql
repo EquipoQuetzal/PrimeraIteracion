@@ -14,8 +14,6 @@ comment on table usuario
 is
 'Relacion usuario guarda los datos de un usuario registrado en el sitio';
 
-ALTER TABLE 
-
 CREATE TABLE publicacion(
    idPublicacion     SERIAL PRIMARY KEY,
    idUsuario         INT NOT NULL REFERENCES usuario(idUsuario),   -- Este id es del usuario que publico
@@ -47,6 +45,6 @@ CREATE TABLE galeria(
    idPublicacion  INT    NOT NULL REFERENCES publicacion(idPublicacion),
    foto           TEXT                                              --Una foto será la url de la fotografía.
 );
-comment on table usuario
+comment on table galeria
 is
 'Relacion galeria guarda las fotografías de cada publicacion';

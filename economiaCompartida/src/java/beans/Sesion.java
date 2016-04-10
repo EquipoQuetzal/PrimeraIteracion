@@ -86,5 +86,8 @@ public class Sesion {
         else
             return true;
     }
+    
+    public void prueba(){
+    }
         
 }

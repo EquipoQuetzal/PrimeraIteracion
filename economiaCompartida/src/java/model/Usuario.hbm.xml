@@ -4,7 +4,7 @@
 <!-- Generated 10/04/2016 05:15:30 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Usuario" table="usuario" schema="public" optimistic-lock="version">
-        <comment>Relaci&#243;n galeria guarda las fotograf&#237;as de cada publicaci&#243;n</comment>
+        <comment>Relacion galeria guarda las fotografias de cada publicacion</comment>
         <id name="idusuario" type="int">
             <column name="idusuario" />
             <generator class="assigned" />

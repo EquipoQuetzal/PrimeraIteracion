@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+    <title>Pagina de inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+    <div id="wrapper">
+	<h:outputLabel value="Acceso denegado (Permisos insuficientes)" rendered="#{Sesion.verificarSesion() eq false}" />
+        
+	<h:form rendered="#{Sesion.verificarSesion()}">
+            <h:panelGrid columns="">
+                <h:outputLabel value="Hola!, que tal | #{Sesion.usuario.nombreusuario} |?"/>
+                <h1> <a href="index.xhtml">(Regreso al inicio xD por ahora)</a> </h1>
+                
+                <h:commandButton value="Cerrar Sesión" action="#{Sesion.cerrarSesion()}"/>
+                
+            </h:panelGrid>		
+	</h:form>
+    </div>
+</body>
+</html>

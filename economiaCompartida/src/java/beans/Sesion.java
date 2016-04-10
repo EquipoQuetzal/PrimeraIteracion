@@ -74,6 +74,17 @@ public class Sesion {
         }
         return "index";
     }       
-              
     
+    public String cerrarSesion() {
+	FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+	return "index";
+    }
+        
+    public boolean verificarSesion() {
+        if (FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario") == null)
+            return false;
+        else
+            return true;
+    }
+        
 }

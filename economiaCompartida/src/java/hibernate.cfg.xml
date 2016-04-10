@@ -7,5 +7,9 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/economiaCompartida</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">12345</property>
+    <mapping resource="model/Galeria.hbm.xml"/>
+    <mapping resource="model/Comentario.hbm.xml"/>
+    <mapping resource="model/Usuario.hbm.xml"/>
+    <mapping resource="model/Publicacion.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

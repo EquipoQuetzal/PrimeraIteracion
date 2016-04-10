@@ -76,7 +76,10 @@ public class Sesion {
     }       
     
     public String cerrarSesion() {
-	FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+	//FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); // Asi lo tengo yo en mi practica
+        httpServletRequest.getSession().removeAttribute("sessionUsuario");
+        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
+        faceContext.addMessage(null, message);
 	return "index";
     }
         

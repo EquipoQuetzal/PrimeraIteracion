@@ -14,9 +14,5 @@
     <mapping resource="model/Comentario.hbm.xml"/>
     <mapping resource="model/Usuario.hbm.xml"/>
     <mapping resource="model/Publicacion.hbm.xml"/>
-    <mapping resource="modelo/Publicacion.hbm.xml"/>
-    <mapping resource="modelo/Comentario.hbm.xml"/>
-    <mapping resource="modelo/Galeria.hbm.xml"/>
-    <mapping resource="modelo/Usuario.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

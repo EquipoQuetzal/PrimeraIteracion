@@ -51,21 +51,21 @@ public class Sesion {
         model.Usuario usuarioBD = helper.autentificar(usuario);
         if (usuarioBD != null) {
             try {
-                /*MessageDigest md = MessageDigest.getInstance("MD5");
-                md.update(usuarioBD.getContrasena().getBytes());
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                md.update(usuario.getContrasena().getBytes());
                 byte[] digest = md.digest();
                 StringBuilder sb = new StringBuilder();
                 for (byte b : digest) {
                     sb.append(String.format("%02x", b & 0xff));
                 }
-                if (sb.toString().equals(login.getPassword())) {
+                if (sb.toString().equals(usuarioBD.getContrasena())) {
                     httpServletRequest.getSession().setAttribute("sessionUsuario", usuario);
                     message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
                     faceContext.addMessage(null, message);
                     return "acceso";
-                }*/
-            } catch (Exception ex) {//catch (NoSuchAlgorithmException ex) {
-                //Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o contraseña incorrecto", null);

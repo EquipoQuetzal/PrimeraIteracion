@@ -8,7 +8,8 @@ CREATE TABLE usuario(
    contrasena     INT NOT NULL,
    calificacion   INT,
    esAdmin        BOOLEAN,
-   constraint correoUnico unique(correo)
+   constraint correoUnico unique(correo),
+   constraint correo_correcto check (correo ~ E'^[\\w!#$%&\'*+/=?`{|}~^-]+(\\.[\\w!#$%&\'*+/=?`{|}~^-]+)*@[\\w-]+(\\.[\\w-]+)*$')
 );
 comment on table usuario
 is

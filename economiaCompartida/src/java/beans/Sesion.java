@@ -88,6 +88,7 @@ public class Sesion {
     }
     
     public void prueba(){
+        System.out.println("Prueba de acceso a metodos del Bean");
     }
         
 }

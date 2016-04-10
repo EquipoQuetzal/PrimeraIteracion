@@ -1,19 +1,20 @@
-
 set client_encoding = 'utf-8'; 
 
 CREATE TABLE usuario(
    idUsuario      SERIAL PRIMARY KEY,
    nombre         TEXT NOT NULL,
    correo         TEXT NOT NULL,
-   contrasena     INT NOT NULL,
+   contrasena     TEXT NOT NULL,
    calificacion   INT,
    esAdmin        BOOLEAN,
    constraint correoUnico unique(correo),
-   constraint correo_correcto check (correo ~ E'^[\\w!#$%&\'*+/=?`{|}~^-]+(\\.[\\w!#$%&\'*+/=?`{|}~^-]+)*@[\\w-]+(\\.[\\w-]+)*$')
+   constraint correoCorrecto check (correo ~ E'^[\\w!#$%&\'*+/=?`{|}~^-]+(\\.[\\w!#$%&\'*+/=?`{|}~^-]+)*@[\\w-]+(\\.[\\w-]+)*$')
 );
 comment on table usuario
 is
-'Relación usuario guarda los datos de un usuario registrado en el sitio';
+'Relacion usuario guarda los datos de un usuario registrado en el sitio';
+
+ALTER TABLE 
 
 CREATE TABLE publicacion(
    idPublicacion     SERIAL PRIMARY KEY,
@@ -28,7 +29,7 @@ CREATE TABLE publicacion(
 );
 comment on table publicacion
 is
-'Relación publicacion guarda los datos de una  publicación hecha por un usuario';
+'Relacion publicacion guarda los datos de una publicacion hecha por un usuario';
 
 CREATE TABLE comentario(
    idComentario   SERIAL PRIMARY KEY,
@@ -39,7 +40,7 @@ CREATE TABLE comentario(
   );
 comment on table comentario
 is
-'Relación comentario guarda los datos de un comentario que se ha publicado en una publicación por un usuario';
+'Relacion comentario guarda los datos de un comentario que se ha publicado en una publicacion por un usuario';
 
 CREATE TABLE galeria(
    idFoto	   	SERIAL PRIMARY KEY,
@@ -48,4 +49,4 @@ CREATE TABLE galeria(
 );
 comment on table usuario
 is
-'Relación galeria guarda las fotografías de cada publicación';
+'Relacion galeria guarda las fotografías de cada publicacion';

@@ -12,14 +12,16 @@
 
 <body>
     <div id="wrapper">
-	<h:outputLabel value="Acceso denegado (Permisos insuficientes)" rendered="#{Sesion.verificarSesion() eq false}" />
+	<h:outputLabel value="Acceso denegado (Permisos insuficientes)" rendered="#{sesion.verificarSesion() eq false}" />
         
-	<h:form rendered="#{Sesion.verificarSesion()}">
+	<h:form rendered="#{sesion.verificarSesion()}">
             <h:panelGrid columns="">
-                <h:outputLabel value="Hola!, que tal | #{Sesion.usuario.nombreusuario} |?"/>
-                <h1> <a href="index.xhtml">(Regreso al inicio xD por ahora)</a> </h1>
+                <h:outputLabel value="Hola!, tu nombre es: | #{sesion.usuario.nombre} |?"/>
+                <h:outputLabel value="Tu correo es: | #{sesion.usuario.correo} |?"/>
+                <h:outputLabel value="Tu contraseña es: | #{sesion.usuario.contrasena} |?"/>
+                <h1> <a href="index.xhtml">Regreso al inicio xD (por ahora)</a> </h1>
                 
-                <h:commandButton value="Cerrar Sesión" action="#{Sesion.cerrarSesion()}"/>
+                <h:commandButton value="Cerrar Sesión" action="#{sesion.cerrarSesion()}"/>
                 
             </h:panelGrid>		
 	</h:form>

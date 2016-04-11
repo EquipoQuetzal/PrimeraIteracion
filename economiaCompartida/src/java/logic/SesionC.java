@@ -29,6 +29,7 @@ public class SesionC {
             // INCLUIR EN EL .SETSTRING TAMBN LA CONTRASEÑA DEL USUARIO PERO LUEGO VEMOS CON EL MD5, IGUAL Y SE HACE EN EL BEAN
             resultado = (Usuario) q.uniqueResult();
             //Si regresa null, significa que el usuario no esta registrado en la BD, no recuerdo donde afecta eso
+            session.close();
             return resultado;
         }catch (Exception e) {
             e.printStackTrace();

@@ -21,12 +21,19 @@
 		
 		<h:panelGrid columns="2">			
 		
-                    <h:outputLabel value="Hola!, que tal | #{sesion.usuario.nombre} |?"/>
+                    <h:outputLabel value="Correo" />
+                    <h:inputText value="#{sesion.usuario.correo}"/>
                     
-                    <h:commandButton value="Iniciar" action="#{sesion.prueba()}" />
+                    <h:outputLabel value="Contraseña" />
+                    <h:inputSecret value="#{sesion.usuario.contrasena}" />
+
+                    
+                    <h:commandButton value="Iniciar" action="#{sesion.login()}" />
 			                                                                        
 		</h:panelGrid>
 	</h:form>
+        
+        <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->
         
         <footer id="footer">
             <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>

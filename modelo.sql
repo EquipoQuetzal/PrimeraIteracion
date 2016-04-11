@@ -48,3 +48,7 @@ CREATE TABLE galeria(
 comment on table galeria
 is
 'Relacion galeria guarda las fotografías de cada publicacion';
+
+--Insertar tuplas en la base de datos para probar el inicio de sesion (antes del caso de uso Registrar)
+--O para insertar administradores
+--INSERT INTO usuario (nombre, correo, contrasena, calificacion, esAdmin) VALUES ('kike','kike@mail.com',md5('kike'),0,true);

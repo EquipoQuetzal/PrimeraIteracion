@@ -6,7 +6,7 @@
       >
 
 <head>
-    <title>Inicio de sesion</title>
+    <title>Registro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
@@ -15,21 +15,22 @@
     <div id="wrapper">
 	<h:form>
 				
-		<h1>Iniciar Sesión</h1>
+		<h1>Llenar Formulario</h1>
 		
 		<h:messages />
 		
 		<h:panelGrid columns="2">			
 		
+                    <h:outputLabel value="Nombre de Usuario" />
+                    <h:inputText value="#{usuarioBean.usuario.nombre}"/>
+                    
                     <h:outputLabel value="Correo" />
-                    <h:inputText value="#{sesion.usuario.correo}"/>
+                    <h:inputSecret value="#{usuarioBean.usuario.correo}" />
                     
-                    <h:outputLabel value="Contraseña" />
-                    <h:inputSecret value="#{sesion.usuario.contrasena}" />
-
-                    
-                    <h:commandButton value="Iniciar" action="#{sesion.login()}" />
-                    <h1> <a href="RegistroIH.xhtml">Registrate aqui</a> </h1>
+                    <h:outputLabel value="Contrasena" />
+                    <h:inputText value="#{usuarioBean.usuario.contrasena}"/>
+                                   
+                    <h:commandButton value="Registrarce" action="#{usuarioBean.registrar()}" />
 			                                                                        
 		</h:panelGrid>
 	</h:form>

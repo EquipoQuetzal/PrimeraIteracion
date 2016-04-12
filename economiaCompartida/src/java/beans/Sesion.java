@@ -65,8 +65,8 @@ public class Sesion {
                 
                 if (sb.toString().equals(usuarioBD.getContrasena())) { //La contrasena introducida coincide con la encontrada en la base de datos
                     System.out.println("|-| La contrasena introducida es correcta! Ingresando al sistema");
-                    httpServletRequest.getSession().setAttribute("sessionUsuario", usuario); //Ponemos los datos de entrada en el servlet (sessionUsuario)
                     usuario = usuarioBD; // Guardamos los datos de la BD en la sesion para futuro uso
+                    httpServletRequest.getSession().setAttribute("sessionUsuario", usuario); //Ponemos los datos de entrada en el servlet (sessionUsuario)
                     message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
                     faceContext.addMessage(null, message);
                     return "valid";

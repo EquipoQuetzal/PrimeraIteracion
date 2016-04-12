@@ -41,4 +41,13 @@ public class UsuarioBean {
            // Agregar mensaje de error (el ejemplo de mensaje de error ya sta en Sesion.java)
            // return "registro" sE QUEDA EN LA PAGINA DE REGISTRO
     }
+    
+    public Usuario getUsuario(){
+        return usuario;
+    }
+    
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
 }

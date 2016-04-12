@@ -65,16 +65,16 @@ public class Sesion {
                 
                 if (sb.toString().equals(usuarioBD.getContrasena())) { //La contrasena introducida coincide con la encontrada en la base de datos
                     System.out.println("|-| La contrasena introducida es correcta! Ingresando al sistema");
-                    httpServletRequest.getSession().setAttribute("sessionUsuario", usuario); //Ponemos los datos de entrada en el servlet (sessionUsuario)
                     usuario = usuarioBD; // Guardamos los datos de la BD en la sesion para futuro uso
+                    httpServletRequest.getSession().setAttribute("sessionUsuario", usuario); //Ponemos los datos de entrada en el servlet (sessionUsuario)
                     message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
                     faceContext.addMessage(null, message);
-                    return "valid";
+                    return "PerfilIH";
                 }else{ //Contrasena incorrecta
                     System.out.println("|-| La contrasena: "+usuario.getContrasena()+" del usuario "+usuario.getCorreo()+" es incorrecta");
                     message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "La contrasena introducida es incorrecta.", null);
                     faceContext.addMessage(null, message);
-                    return "invalid";
+                    return "index";
                 }
             } catch (NoSuchAlgorithmException ex) {
                 System.out.println("|-| Algo raro paso con el algoritmo de cifrado");
@@ -84,7 +84,7 @@ public class Sesion {
             System.out.println("|-| El correo: "+usuario.getCorreo()+" no esta en la base de datos");
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"El correo: "+ usuario.getCorreo()+" no existe en la base de datos.", null);
             faceContext.addMessage(null, message);
-            return "invalid";
+            return "index";
         }
         return "index";
     }
@@ -94,6 +94,7 @@ public class Sesion {
         httpServletRequest.getSession().removeAttribute("sessionUsuario");
         message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
         faceContext.addMessage(null, message);
+        System.out.println("|-| Sesion cerrada correctamente");
 	return "index";
     }
         

@@ -14,23 +14,26 @@
 <body>
     <div id="wrapper">
 	<h:form>
-				
-		<h1>Iniciar Sesión</h1>
-		
 		<h:messages />
-		
-		<h:panelGrid columns="2">			
-		
+                
+                <!--> Si el usuario no tiene una sesion abierta que aparezca esto <-->
+                <!--> Aqui agregar verificacion de sesion (como en valid.xhyml) <!-->
+		<h1>Iniciar Sesión</h1>		
+		<h:panelGrid columns="2">		
                     <h:outputLabel value="Correo" />
                     <h:inputText value="#{sesion.usuario.correo}"/>
                     
                     <h:outputLabel value="Contraseña" />
                     <h:inputSecret value="#{sesion.usuario.contrasena}" />
-
                     
-                    <h:commandButton value="Iniciar" action="#{sesion.login()}" />
-			                                                                        
+                    <h:commandButton value="Iniciar" action="#{sesion.login()}" />                    
 		</h:panelGrid>
+                <h:commandButton value="Registrarse" action="RegistroIH" />
+                
+                <!--> Si ya tiene la sesion iniciada, que muestre hasta arriba opcion de cerrar sesion, si se puede su nombre y correo, y boton a perfil <!-->
+                                
+                <!-->Independientemente de si esta logeado o no debe poder ver una lista de publicaciones existentes en la base de datos (+campo de busqueda)<!-->
+                        <!--> Si esta logeado puede calificar o soicitar el prestamo de una publicacion actual<-->                
 	</h:form>
         
         <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->

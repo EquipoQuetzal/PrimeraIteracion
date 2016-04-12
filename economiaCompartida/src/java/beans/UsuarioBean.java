@@ -34,12 +34,14 @@ public class UsuarioBean {
     }
 
     public void registrar(){
+        System.out.println("Intentando insertar al usuario: "+usuario.getNombre()+ ", "+usuario.getCorreo()+", "+usuario.getContrasena());
         //Hay k poder verificar de alguna manera k el insert se hizo exitosamente
-        //if(helper.registrarBD) El insert se pudo hacer bien pues ya
+        //if(helper.registrarBD(usuario)) El insert se pudo hacer bien pues ya
+            // asignamos sessionUsuario como cuando se inicia sesion
             // return "perfilIH" Redireeccionamos al perfil en teoria
         //Si no, regresa un mensaje de error o algo
            // Agregar mensaje de error (el ejemplo de mensaje de error ya sta en Sesion.java)
-           // return "registro" sE QUEDA EN LA PAGINA DE REGISTRO
+           // return "registro" se queda en la pagina de registro mostrando el mensaje de error
     }
     
     public Usuario getUsuario(){

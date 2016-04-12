@@ -94,6 +94,7 @@ public class Sesion {
         httpServletRequest.getSession().removeAttribute("sessionUsuario");
         message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
         faceContext.addMessage(null, message);
+        System.out.println("|-| Sesion cerrada correctamente");
 	return "index";
     }
         

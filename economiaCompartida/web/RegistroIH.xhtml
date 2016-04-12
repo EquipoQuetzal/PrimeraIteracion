@@ -28,9 +28,10 @@
                     <h:inputSecret value="#{usuarioBean.usuario.correo}" />
                     
                     <h:outputLabel value="Contrasena" />
-                    <h:inputText value="#{usuarioBean.usuario.contrasena}"/>
+                    <h:inputSecret value="#{usuarioBean.usuario.contrasena}" />
                                    
                     <h:commandButton value="Registrarse" action="#{usuarioBean.registrar()}" />
+                    <h:commandButton value="Regresar" action="index" />
 			                                                                        
 		</h:panelGrid>
 	</h:form>

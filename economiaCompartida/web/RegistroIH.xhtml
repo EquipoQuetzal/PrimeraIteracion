@@ -13,13 +13,12 @@
 
 <body>
     <div id="wrapper">
-	<h:form>
-				
-		<h1>Llenar Formulario</h1>
+	<h:form>				
+		<h1>Llenar Formulario:</h1>
 		
 		<h:messages />
 		
-		<h:panelGrid columns="2">			
+		<h:panelGrid columns="2">
 		
                     <h:outputLabel value="Nombre de Usuario" />
                     <h:inputText value="#{usuarioBean.usuario.nombre}"/>
@@ -29,11 +28,10 @@
                     
                     <h:outputLabel value="Contrasena" />
                     <h:inputSecret value="#{usuarioBean.usuario.contrasena}" />
-                                   
-                    <h:commandButton value="Registrarse" action="#{usuarioBean.registrar()}" />
-                    <h:commandButton value="Regresar" action="index" />
-			                                                                        
+                    <h:commandButton value="Registrarse" action="#{usuarioBean.registrar()}" />			                                                                        
 		</h:panelGrid>
+                <h:commandButton value="Regresar" action="index" />
+                
 	</h:form>
         
         <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->

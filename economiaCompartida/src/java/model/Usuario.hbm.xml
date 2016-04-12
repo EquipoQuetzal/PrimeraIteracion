@@ -49,4 +49,9 @@
 	<![CDATA[select * from usuario where usuario.correo = :correo]]>
     </sql-query>
     
+    <sql-query name="InsertarUsuario">
+	<return alias="Usuario" class="model.Usuario"/>
+	<![CDATA[insert into usuario (nombre, correo, contrasena, calificacion, esAdmin) values (:nombre, :correo, :contrasena, 0, false)]]>
+    </sql-query>
+    
 </hibernate-mapping>

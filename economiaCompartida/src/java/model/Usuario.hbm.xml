@@ -12,7 +12,7 @@
         <property name="nombre" type="string">
             <column name="nombre" not-null="true" />
         </property>
-        <property name="contrasena" type="int">
+        <property name="contrasena" type="string">
             <column name="contrasena" not-null="true" />
         </property>
         <property name="calificacion" type="java.lang.Integer">

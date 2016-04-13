@@ -22,15 +22,12 @@ public class UsuarioC {
     session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
     
-    public void registrar(Usuario usuario){        
+    public void registrarBD(Usuario usuario){        
         try{
             Transaction tx = session.beginTransaction();
-            Query q = session.getNamedQuery("IncertarUsuario");
-            q.setString("nombre",usuario.getNombre());
-            q.setString("correo",usuario.getCorreo());
-            q.setString("contrasena",usuario.getContrasena());
+            session.save(usuario);
+            session.getTransaction().commit();
             // q.executeUpdate(); //buscar como guardar el usuario en la base de datos, aun no sabemos bien como, quizas sea con .save(modelo)
-            session.close();
         }catch (Exception e) {
             e.printStackTrace();
         }

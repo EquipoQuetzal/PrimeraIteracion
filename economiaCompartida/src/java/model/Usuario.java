@@ -35,6 +35,8 @@ public class Usuario  implements java.io.Serializable {
 
     public Usuario() {
         nombre = "Visitante";
+        esadmin = false;
+        calificacion = 0;
     }
 	
     public Usuario(int idusuario, String nombre, String contrasena, String correo) {

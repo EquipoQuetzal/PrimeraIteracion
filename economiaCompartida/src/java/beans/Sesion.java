@@ -61,8 +61,7 @@ public class Sesion {
                 for (byte b : digest) {
                     sb.append(String.format("%02x", b & 0xff));
                 }
-                System.out.println("|-| Contrasena introducida cifrada: "+sb.toString());
-                
+                System.out.println("|-| Contrasena introducida cifrada: "+sb.toString());                
                 if (sb.toString().equals(usuarioBD.getContrasena())) { //La contrasena introducida coincide con la encontrada en la base de datos
                     System.out.println("|-| La contrasena introducida es correcta! Ingresando al sistema");
                     usuario = usuarioBD; // Guardamos los datos de la BD en la sesion para futuro uso

@@ -69,12 +69,12 @@ public class Sesion {
                     httpServletRequest.getSession().setAttribute("sessionUsuario", usuario); //Ponemos los datos de entrada en el servlet (sessionUsuario)
                     message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
                     faceContext.addMessage(null, message);
-                    return "valid";
+                    return "PerfilIH";
                 }else{ //Contrasena incorrecta
                     System.out.println("|-| La contrasena: "+usuario.getContrasena()+" del usuario "+usuario.getCorreo()+" es incorrecta");
                     message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "La contrasena introducida es incorrecta.", null);
                     faceContext.addMessage(null, message);
-                    return "invalid";
+                    return "index";
                 }
             } catch (NoSuchAlgorithmException ex) {
                 System.out.println("|-| Algo raro paso con el algoritmo de cifrado");
@@ -84,7 +84,7 @@ public class Sesion {
             System.out.println("|-| El correo: "+usuario.getCorreo()+" no esta en la base de datos");
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"El correo: "+ usuario.getCorreo()+" no existe en la base de datos.", null);
             faceContext.addMessage(null, message);
-            return "invalid";
+            return "index";
         }
         return "index";
     }

@@ -20,9 +20,13 @@
         <!--> Esto ocurre cuando el usuario ya tiene una sesion iniciada <-->
 	<h:form rendered="#{sesion.verificarSesion()}">            
             <h:panelGrid columns="">                
-                <h:commandButton value="Borrar Usuario" action="BorrarUsuarioIH"/>
+                <h:commandButton value="Borrar Usuario" action="BorrarUsuarioIH"/>                
                 
-                <!--> Aqui el de borrar publicacion <-->                
+                <!--> Aqui el de borrar publicacion <-->
+                
+                <!-->REVISAR BIEN ESTO, cuando se regresa al perfil de usuario ya esta cerrada la sesion :s quizas haya que cambiar
+                     la etiqueta del bean Sesion.java <-->
+                <h:commandButton value="Perfil de Usuario" action="PerfilIH" />
             </h:panelGrid>		
 	</h:form>
     </div>

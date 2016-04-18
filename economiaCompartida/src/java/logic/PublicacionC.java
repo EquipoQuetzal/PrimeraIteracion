@@ -18,7 +18,8 @@ import model.Usuario;
 public class PublicacionC {
     
     private Session session;
-    private Usuario usuario;
+    private Usuario usuario = new Usuario();
+    
     public PublicacionC(){
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
@@ -27,10 +28,11 @@ public class PublicacionC {
         try{
             Transaction tx = session.beginTransaction();
             java.util.Date fecha = new Date();
-            //publicacion.setUsuarioByIdusuario();
+            usuario.setIdusuario(1); //Checar como extraer el id del usuario alctual  
+            publicacion.setUsuarioByIdusuario(usuario);
             publicacion.setFechapublicacion(fecha);
             session.save(publicacion);
-            session.getTransaction().commit(); 
+            session.getTransaction().commit();
         }catch (Exception e) {
             System.out.println("Hubo un error al hacer la publicacion");
             e.printStackTrace();

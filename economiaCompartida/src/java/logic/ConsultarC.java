@@ -76,7 +76,7 @@ public class ConsultarC {
     
     public void ordenar(){
         
-        Collections.sort(this.resultados);
+        //Collections.sort(this.resultados);
         
     }
    

@@ -3,6 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      
+      
+      
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       >
 
 <head>
@@ -37,7 +42,28 @@
                         
                 <!-->PRUEBA TEMPORAL (solo para ver que pasa si intenta acceder al perfil sin iniciar sesion) <-->
                 <h:commandButton value="Perfil de Usuario" action="PerfilIH" />
-	</h:form>
+	
+        
+        
+         <!-->Alan Alan #################### <-->
+         
+            <h:outputLabel value="Haz una Búsqueda" />
+                <h:inputText  value="#{consultarBean.clave}"/>
+                    <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}">
+                     
+                    </h:commandButton> 
+               
+              
+         <!-->Alan Alan #################### <-->
+        
+         
+         
+       </h:form>
+        
+        
+       
+        
+        
         
         <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->
         

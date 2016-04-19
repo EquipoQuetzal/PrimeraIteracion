@@ -43,4 +43,6 @@
             <one-to-many class="model.Comentario" />
         </set>
     </class>
+    
+    
 </hibernate-mapping>

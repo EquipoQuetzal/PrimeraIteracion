@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <h:body>
+        <ui:composition template="./PlantillaIH.xhtml">
+            <ui:define name="Publicacion">
+                
+            </ui:define>
+
+            <ui:define name="left">
+                <h:outputLabel value="You are in the Left Section"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:graphicImage value="/Images/intel-6thgen.jpg" height="50" width="350"/>
+                <h:outputText value="You are in the Main Content Section"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

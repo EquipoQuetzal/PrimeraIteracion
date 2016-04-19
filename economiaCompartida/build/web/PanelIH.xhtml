@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+    <title>Panel de Administrador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <h:messages />
+        
+        <!--> Esto ocurrira si el usuario no ha iniciado sesion e intenta acceder a esta pagina <-->
+	<h:outputLabel value="Acceso denegado (Permisos insuficientes)" rendered="#{sesion.verificarSesion() eq false}" />
+        
+        <!--> Esto ocurre cuando el usuario ya tiene una sesion iniciada <-->
+	<h:form rendered="#{sesion.verificarSesion()}">            
+            <h:panelGrid columns="">                
+                <h:commandButton value="Borrar Usuario" action="BorrarUsuarioIH"/>                
+                
+                <!--> Aqui el de borrar publicacion <-->
+                
+                <!-->REVISAR BIEN ESTO, cuando se regresa al perfil de usuario ya esta cerrada la sesion :s quizas haya que cambiar
+                     la etiqueta del bean Sesion.java <-->
+                <h:commandButton value="Perfil de Usuario" action="PerfilIH" />
+            </h:panelGrid>		
+	</h:form>
+    </div>
+</body>
+</html>

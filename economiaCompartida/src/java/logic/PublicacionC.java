@@ -5,11 +5,12 @@
  */
 package logic;
 
-import model.Publicacion;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.Date;
 
+import model.Publicacion;
 import model.Usuario;
 /**
  *
@@ -37,5 +38,32 @@ public class PublicacionC {
             System.out.println("Hubo un error al hacer la publicacion");
             e.printStackTrace();
         }
+    }        
+        
+    public Publicacion buscarPublicacion(Integer id){
+        Publicacion resultado;
+        try{
+            Transaction tx = session.beginTransaction();
+            Query q = session.getNamedQuery("BuscarPublicacion").setInteger("id",id);
+            resultado = (Publicacion) q.uniqueResult();
+            //Si regresa null, significa que el usuario no esta registrado en la BD, no recuerdo donde afecta eso
+            session.close();
+            return resultado;
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+    public void borrarPublicacionBD(Publicacion publicacion){
+        try{
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = session.beginTransaction();
+            session.delete(publicacion);
+            session.getTransaction().commit();
+        }catch (Exception e) {
+            // Esto nunca deberia pasar porque ya sacamos anteriormente al usuario de la base de datos
+            e.printStackTrace();
+        }
+    }        
+        
 }

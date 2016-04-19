@@ -7,7 +7,7 @@
         <comment>Relaci&#243;n publicacion guarda los datos de una publicaci&#243;n hecha por un usuario</comment>
         <id name="idpublicacion" type="int">
             <column name="idpublicacion" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="usuarioByIdprestatario" class="model.Usuario" fetch="select">
             <column name="idprestatario" />
@@ -43,4 +43,10 @@
             <one-to-many class="model.Comentario" />
         </set>
     </class>
+    
+    <sql-query name="BuscarPublicacion">
+	<return alias="Publicacion" class="model.Publicacion"/>
+	<![CDATA[select * from publicacion where publicacion.idpublicacion = :id]]>
+    </sql-query>
+    
 </hibernate-mapping>

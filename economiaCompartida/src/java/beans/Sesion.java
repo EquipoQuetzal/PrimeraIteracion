@@ -36,6 +36,7 @@ public class Sesion {
     public Sesion(){
         faceContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) faceContext.getExternalContext().getRequest();
+        usuario = (Usuario) httpServletRequest.getSession().getAttribute("sessionUsuario");
         helper = new SesionC();
     }
     

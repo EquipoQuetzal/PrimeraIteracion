@@ -1,3 +1,4 @@
+.gitignore_global
 */target/
 nbproject/private
 nb-configuration.xml
@@ -11,3 +12,4 @@ session.*
 projectile.cache
 .recentf
 ac-comphist.dat
+/economiaCompartida/dist/

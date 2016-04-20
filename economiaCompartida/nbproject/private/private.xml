@@ -3,30 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Publicacion.java</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Galeria.java</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/beans/UsuarioBean.java</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/logic/SesionC.java</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Galeria.hbm.xml</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/invalid.xhtml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/ConsultarIH.xhtml</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/beans/ConsultarBean.java</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/beans/AdministradorBean.java</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Comentario.java</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Usuario.java</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/BorrarUsuarioIH.xhtml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Publicacion.hbm.xml</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/logic/UsuarioC.java</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/PanelIH.xhtml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/RegistroIH.xhtml</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/logic/ConsultarC.java</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/logic/HibernateUtil.java</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Publicacion.java</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Galeria.java</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/invalid.xhtml</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/beans/ConsultarBean.java</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/BorrarUsuarioIH.xhtml</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/logic/UsuarioC.java</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/PlantillaIH.xhtml</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/PanelIH.xhtml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/hibernate.cfg.xml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Usuario.hbm.xml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/PerfilIH.xhtml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/model/Comentario.hbm.xml</file>
+            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/ConsultarPIH.xhtml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/web/index.xhtml</file>
             <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/beans/Sesion.java</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/logic/ConsultarC.java</file>
-            <file>file:/E:/Documentos/ACADEMICO%20Y%20UTILIDADES/Ing.%20Software/PRIMERA/Final/PrimeraIteracion-master/PrimeraIteracion-master/economiaCompartida/src/java/logic/HibernateUtil.java</file>
         </group>
     </open-files>
 </project-private>

@@ -2,6 +2,7 @@ package model;
 // Generated 10/04/2016 05:15:29 AM by Hibernate Tools 4.3.1
 
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +24,7 @@ import javax.persistence.TemporalType;
 @Table(name="publicacion"
     ,schema="public"
 )
-public class Publicacion  implements java.io.Serializable {
+public class Publicacion  implements java.io.Serializable, Comparator<Publicacion>,Comparable<Publicacion>  {
 
 
      private int idpublicacion;
@@ -161,9 +162,36 @@ public class Publicacion  implements java.io.Serializable {
         this.comentarios = comentarios;
     }
 
+//Alan Alan Alan Alan ###################################################
+    
+    // Sobrecraga el método compareTo para poder comparar Publicaciones por su calificación.  
+     @Override
+        public int compareTo(Publicacion p) {
+       
+            if(this.calificacion < p.calificacion)
+                return -1;
+            if(this.calificacion == p.calificacion)
+                return 0;
+            return 1;
+            
+        }
+        
 
+
+       // Sobrecraga el método compare para ordenar por utilidad.
+        @Override
+        public int compare(Publicacion p, Publicacion p2){
+             return (int)(p.calificacion - p2.calificacion);
+   }
+        
+//Alan Alan Alan Alan ###################################################
 
 
 }
+
+
+
+
+
 
 

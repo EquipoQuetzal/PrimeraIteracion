@@ -26,6 +26,13 @@ and open the template in the editor.
                     
 
                         <h:dataTable value="#{consultarBean.resultados}" var="resultado">
+                          
+                            <h:column> 
+                            <h:commandLink action="ConsultarPIH.xhtml">
+                                      <h:graphicImage value="/Images/Computers_Computers_technology_042219_.jpg" height="50" width="350" />
+                            </h:commandLink> 
+                            </h:column>     
+                          
                             <h:column>
                                 <f:facet name="header">Id</f:facet>
                                     #{resultado.idpublicacion}
@@ -52,6 +59,11 @@ and open the template in the editor.
                 </c:otherwise>    
             </c:choose>
 
-        </h:form>        
+        </h:form>  
+        
+      
+    
+        
+        
     </body>
 </html>

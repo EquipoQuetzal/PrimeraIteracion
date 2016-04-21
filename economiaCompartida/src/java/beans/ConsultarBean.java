@@ -6,11 +6,6 @@
 package beans;
 
 import java.util.*;
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
-import java.util.Arrays;
->>>>>>> origin/develop
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

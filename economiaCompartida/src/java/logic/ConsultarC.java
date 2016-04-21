@@ -7,7 +7,15 @@ package logic;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+<<<<<<< HEAD
 import model.Publicacion;
+=======
+//import java.util.ArrayList;
+//import java.util.List;
+import model.Publicacion;
+//import java.util.Collections;
+//import java.util.Date;
+>>>>>>> origin/develop
 import java.util.*;
 import model.Usuario;
 
@@ -27,6 +35,7 @@ public class ConsultarC {
   
      public ConsultarC(){
           session = HibernateUtil.getSessionFactory().getCurrentSession();
+<<<<<<< HEAD
          
        
  
@@ -57,20 +66,45 @@ public class ConsultarC {
         return resultado;
      
         
+=======
+          //init();
+       
+ 
+    }
+    public void init(){
+        Usuario u = new Usuario(); 
+        this.resultados = new ArrayList();
+        Date d = new Date();
+        resultados.add(new Publicacion(1,u, "Oaxaca","Mmemoria ram",d ));
+        resultados.add(new Publicacion(2,u, "Oaxaca","Mmemoria2 ram",d ));
+        resultados.add(new Publicacion(3,u, "Oaxaca","Mmemoria3 ram",d ));
+        
+        
+        
+       
+>>>>>>> origin/develop
     }
     
    
     
     
      public List<Publicacion> buscar(String clave ){
+<<<<<<< HEAD
          
          clave = obtenerPalabras(clave);
+=======
+         clave = clave.toLowerCase();
+>>>>>>> origin/develop
          session = HibernateUtil.getSessionFactory().getCurrentSession();
          List<Publicacion> r = new ArrayList<>();
           try{
             Transaction tx = session.beginTransaction();
              Query q = session.createSQLQuery("select * from publicacion where "
+<<<<<<< HEAD
             + "LOWER(publicacion.descripcion) ~ :clave ; ").addEntity(Publicacion.class).setString("clave",  clave );
+=======
+            + "LOWER(publicacion.descripcion) like :clave ; ").addEntity(Publicacion.class).setString("clave", "%" + clave + "%");
+>>>>>>> origin/develop
 
             
             resultados = (ArrayList<Publicacion>) q.list();
@@ -88,8 +122,12 @@ public class ConsultarC {
     
     public void ordenar(){
         
+<<<<<<< HEAD
         Collections.sort(this.resultados);
         Collections.reverse(this.resultados);
+=======
+        //Collections.sort(this.resultados);
+>>>>>>> origin/develop
         
     }
    
@@ -101,6 +139,7 @@ public class ConsultarC {
         
         this.resultados  = r;
     }
+<<<<<<< HEAD
 
 
      
@@ -108,3 +147,7 @@ public class ConsultarC {
             
 }
 
+=======
+    
+}
+>>>>>>> origin/develop

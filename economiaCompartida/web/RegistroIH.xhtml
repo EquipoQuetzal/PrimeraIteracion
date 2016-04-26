@@ -5,42 +5,41 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       >
 
-<head>
-    <title>Registro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
+    <head>
+        <title>Registro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
 
-<body>
-    <div id="wrapper">
-	<h:form>				
-		<h1>Llenar Formulario:</h1>
-		
-		<h:messages />
-		
-		<h:panelGrid columns="2">
-		
+    <body>
+        <div id="wrapper">
+            <h:form>				
+                <h1>Llenar Formulario:</h1>
+
+                <h:messages />
+
+                <h:panelGrid columns="2">
+
                     <h:outputLabel value="Nombre de Usuario" />
                     <h:inputText value="#{usuarioBean.usuario.nombre}"/>
-                    
+
                     <h:outputLabel value="Correo" />
                     <h:inputText value="#{usuarioBean.usuario.correo}" />
-                    
+
                     <h:outputLabel value="Contrasena" />
                     <h:inputSecret value="#{usuarioBean.usuario.contrasena}" />
                     <h:commandButton value="Registrarse" action="#{usuarioBean.registrar()}" />			                                                                        
-		</h:panelGrid>
-                
-                <h:commandButton value="Regresar" action="index" />   
-                <h:commandButton value="Cerrar Sesión" action="#{sesion.cerrarSesion()}"/>               
-	</h:form>
-        
-        <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->
-        
-        <footer id="footer">
-            <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
-        </footer>
-        
-    </div>
-</body>
+                </h:panelGrid>
+
+                <h:commandButton value="Regresar" action="index" />                
+            </h:form>
+
+            <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->
+
+            <footer id="footer">
+                <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+            </footer>
+
+        </div>
+    </body>
 </html>

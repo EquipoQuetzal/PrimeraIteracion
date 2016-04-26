@@ -5,44 +5,44 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       >
 
-<head>
-    <title>Publicacion</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
+    <head>
+        <title>Publicacion</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
 
-<body>
-    <div id="wrapper">
-	<h:form>				
-		<h1>Formulario de Publicacion:</h1>
-		
-		<h:messages />
-		
-		<h:panelGrid columns="2">
+    <body>
+        <div id="wrapper">
+            <h:form>				
+                <h1>Formulario de Publicacion:</h1>
 
-                    
+                <h:messages />
+
+                <h:panelGrid columns="2">
+
+
                     <h:outputLabel value="Descripcion" />
                     <h:inputText value="#{publicacionBean.publicacion.descripcion}" />
-                    
+
                     <h:outputLabel value="Precio" />
                     <h:inputText value="#{publicacionBean.publicacion.precio}"/>
-                    
+
                     <h:outputLabel value="Estado" />
                     <h:inputText value="#{publicacionBean.publicacion.estado}" />
-                                        
+
                     <h:commandButton value="Publicar" action="#{publicacionBean.registrarPublicacion()}" />			                                                                        
-		</h:panelGrid>
+                </h:panelGrid>
                 <h:commandButton value="Regresar" action="PerfilIH" />
                 <h:commandButton value="Cerrar Sesión" action="#{sesion.cerrarSesion()}"/>
-                
-	</h:form>
-        
-        <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->
-        
-        <footer id="footer">
-            <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
-        </footer>
-        
-    </div>
-</body>
+
+            </h:form>
+
+            <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->
+
+            <footer id="footer">
+                <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+            </footer>
+
+        </div>
+    </body>
 </html>

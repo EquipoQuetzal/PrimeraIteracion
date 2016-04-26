@@ -5,35 +5,35 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       >
 
-<head>
-    <title>Borrar publicacion</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
+    <head>
+        <title>Borrar publicacion</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
 
-<body>
-    <div id="wrapper">
-	<h:form>
-        <!--> Verificar que es administrador (y verificar que la sesion este abierta?) <-->
-		<h1>Indicar el correo del usuario a eliminar:</h1>
-		
-		<h:messages />
-		
-		<h:panelGrid columns="2">
-		
-                <h:outputLabel value="Correo" />
-                <h:inputText value="#{administradorBean.publicacion.idpublicacion}" />
-                    
-                <h:commandButton value="Borrar" action="#{administradorBean.borrarPublicacion()}" />			                                                                        
-		</h:panelGrid>
+    <body>
+        <div id="wrapper">
+            <h:form>
+                <!--> Verificar que es administrador (y verificar que la sesion este abierta?) <-->
+                <h1>Indicar el correo del usuario a eliminar:</h1>
+
+                <h:messages />
+
+                <h:panelGrid columns="2">
+
+                    <h:outputLabel value="Correo" />
+                    <h:inputText value="#{administradorBean.publicacion.idpublicacion}" />
+
+                    <h:commandButton value="Borrar" action="#{administradorBean.borrarPublicacion()}" />			                                                                        
+                </h:panelGrid>
                 <h:commandButton value="Regresar" action="PanelIH" />
                 <h:commandButton value="Cerrar Sesión" action="#{sesion.cerrarSesion()}"/>
-	</h:form>
-        
-        <footer id="footer">
-            <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
-        </footer>
-        
-    </div>
-</body>
+            </h:form>
+
+            <footer id="footer">
+                <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+            </footer>
+
+        </div>
+    </body>
 </html>

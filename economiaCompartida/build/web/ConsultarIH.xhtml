@@ -20,6 +20,8 @@ and open the template in the editor.
         <h:form>
             <h:inputText value = "#{consultarBean.clave}"/>
             <h:commandButton value="Buscar" action="#{consultarBean.buscar()}"/>
+            <h:commandButton value="Regresar" action="index" />
+            <h:commandButton value="Cerrar Sesión" action="#{sesion.cerrarSesion()}" rendered="#{sesion.verificarSesion()}"/>
             <br/>
             <c:choose>
                 <c:when test="#{consultarBean.resultados.size()!=0}">
@@ -29,7 +31,7 @@ and open the template in the editor.
                           
                             <h:column> 
                             <h:commandLink action="ConsultarPIH.xhtml">
-                                      <h:graphicImage value="/Images/Computers_Computers_technology_042219_.jpg" height="50" width="350" />
+                                      <h:graphicImage value="/Images/Computers_Computers_technology_042219_.jpg" height="150" width="150" />
                             </h:commandLink> 
                             </h:column>     
                           
@@ -49,6 +51,10 @@ and open the template in the editor.
                             <h:column >
                                 <f:facet name="header">Calificacion</f:facet>
                                     #{resultado.calificacion}
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">Prestar</f:facet>
+                                    <h:commandButton value="Pedir" action="#{PublicacionBean.pedir(resultado)}"/>
                             </h:column>	
                         </h:dataTable> 
                     

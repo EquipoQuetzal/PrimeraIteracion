@@ -20,16 +20,15 @@
         <!--> Esto ocurre cuando el usuario ya tiene una sesoin iniciada <-->
 	<h:form rendered="#{sesion.verificarSesion()}">
             <h:panelGrid columns="">
-                <h:outputLabel value="Hola!, tu nombre es: | #{sesion.usuario.nombre} |?"/>
-                <h:outputLabel value="Tu correo es: | #{sesion.usuario.correo} |?"/>
-                <h:outputLabel value="Tu contraseña es: | #{sesion.usuario.contrasena} |?"/>
+                <h:outputLabel value="Hola!, tu nombre es:  #{sesion.usuario.nombre} ?"/>
+                <h:outputLabel value="Tu correo es:  #{sesion.usuario.correo} ?"/>
                 
-                <h1> <a href="index.xhtml">Regreso al inicio xD (por ahora)</a> </h1>                
+                <h:commandButton value="Inicio" action="index"/>                
                 <h:commandButton value="Cerrar Sesión" action="#{sesion.cerrarSesion()}"/>
                 
                 <h:commandButton value="Publicar" action="PublicarOfertaIH"/>
                 <!--> Aqui un "if" para verificar que el usuario es administrador <-->
-                <h:commandButton value="Panel administrador" action="PanelIH"/>
+                <h:commandButton value="Panel administrador" action="PanelIH" rendered="#{usuarioBean.verificarAdmin()}"/>
             </h:panelGrid>		
 	</h:form>
     </div>

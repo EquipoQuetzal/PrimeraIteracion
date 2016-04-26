@@ -74,13 +74,13 @@ public class ConsultarC {
 
             
             resultados = (ArrayList<Publicacion>) q.list();
-            session.getTransaction().commit();
+            //session.getTransaction().commit();
             this.ordenar();
             
            
         }catch (Exception e) {
             e.printStackTrace();
-            session.getTransaction().rollback();
+            //session.getTransaction().rollback();
         }
          return resultados;
          
@@ -101,10 +101,6 @@ public class ConsultarC {
         
         this.resultados  = r;
     }
-
-
-     
-            
             
 }
 

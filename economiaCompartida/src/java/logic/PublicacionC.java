@@ -25,19 +25,14 @@ public class PublicacionC {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
 
-        public void registrarBD(Publicacion publicacion){        
-        try{
+        public void registrarBD(Publicacion publicacion,Usuario usu ){        
             Transaction tx = session.beginTransaction();
             java.util.Date fecha = new Date();
-            usuario.setIdusuario(1); //Checar como extraer el id del usuario alctual  
-            publicacion.setUsuarioByIdusuario(usuario);
+            //usuario.setIdusuario(idUsuario); //Checar como extraer el id del usuario alctual  
+            publicacion.setUsuarioByIdusuario(usu);
             publicacion.setFechapublicacion(fecha);
             session.save(publicacion);
             session.getTransaction().commit();
-        }catch (Exception e) {
-            System.out.println("Hubo un error al hacer la publicacion");
-            e.printStackTrace();
-        }
     }        
         
     public Publicacion buscarPublicacion(Integer id){
@@ -65,5 +60,13 @@ public class PublicacionC {
             e.printStackTrace();
         }
     }        
-        
+    public void prestarPublicacion(Publicacion publicacion,Usuario usu ){
+        if (publicacion.getUsuarioByIdusuario() != null){
+        //usuario.setIdusuario(idUsuario); //Checar como extraer el id del usuario alctual  
+        Transaction tx = session.beginTransaction();
+        publicacion.setUsuarioByIdprestatario(usu);
+        session.update(publicacion);
+        session.getTransaction().commit();
+        }
+    }    
 }

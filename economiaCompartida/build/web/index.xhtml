@@ -15,7 +15,7 @@
     <div id="wrapper">
 	<h:form>
 		<h:messages />
-                
+                <h:form rendered="#{sesion.verificarSesion() eq false}">
                 <!--> Si el usuario no tiene una sesion abierta que aparezca esto <-->
                 <!--> Aqui agregar verificacion de sesion (como en valid.xhyml) <!-->
 		<h1>Iniciar Sesión</h1>		
@@ -29,29 +29,30 @@
                     <h:commandButton value="Iniciar" action="#{sesion.login()}" />
 		</h:panelGrid>
                 <h:commandButton value="Registrarse" action="RegistroIH" />
-                
+      <!-->Alan Alan #################### <-->
+                 <h:outputLabel value="Haz una Búsqueda" />
+                <h:inputText  value="#{consultarBean.clave}"/>
+                <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
+                <!-->Alan Alan #################### <-->
+                </h:form>
                 <!--> Si ya tiene la sesion iniciada, que muestre hasta arriba opcion de cerrar sesion, si se puede su nombre y correo, y boton a perfil <!-->
                                 
                
                         
                 <!-->PRUEBA TEMPORAL (solo para ver que pasa si intenta acceder al perfil sin iniciar sesion) <-->
-                <h:commandButton value="Perfil de Usuario" action="PerfilIH" />
-                
-                 <!-->Independientemente de si esta logeado o no debe poder ver una lista de publicaciones existentes en la base de datos (+campo de busqueda)<!-->
+                <h:commandButton value="Perfil de Usuario" action="PerfilIH" rendered="#{sesion.verificarSesion() eq true}" />
+                <h:commandButton value="Cerrar Sesion" action="#{sesion.cerrarSesion()}" rendered="#{sesion.verificarSesion()}" />
+                <h:commandButton value="Publicar" action="PublicarOfertaIH" rendered="#{sesion.verificarSesion()}" />
+                <h:form rendered="#{sesion.verificarSesion() eq true}">    
+         <!-->Alan Alan #################### <-->
+                 <h:outputLabel value="Haz una Búsqueda" />
+                <h:inputText  value="#{consultarBean.clave}"/>
+                <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
+                <!-->Alan Alan #################### <-->
+                </h:form>
+                <!-->Independientemente de si esta logeado o no debe poder ver una lista de publicaciones existentes en la base de datos (+campo de busqueda)<!-->
                         <!--> Si esta logeado puede calificar o soicitar el prestamo de una publicacion actual<-->    
-                
-                <!-->Alan Alan #################### <-->
-         
-                <h:outputLabel value="Haz una Búsqueda" />
-                    <h:inputText  value="#{consultarBean.clave}"/>
-                        <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}">
-                     
-                        </h:commandButton> 
-               
-              
-                <!-->Alan Alan #################### <-->
-        
-              
+                             
 	</h:form>
         
         <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->

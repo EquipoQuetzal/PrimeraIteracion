@@ -23,14 +23,11 @@ public class UsuarioC {
     }
     
     public void registrarBD(Usuario usuario){        
-        try{
             Transaction tx = session.beginTransaction();
             session.save(usuario);
             session.getTransaction().commit();
             // q.executeUpdate(); //buscar como guardar el usuario en la base de datos, aun no sabemos bien como, quizas sea con .save(modelo)
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     
     public Usuario buscarPorCorreo(String correo){

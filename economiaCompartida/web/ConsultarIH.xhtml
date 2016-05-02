@@ -1,75 +1,94 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
     <head>
-        <title>Resultados de la búsqueda</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="assets/css/main.css" />
+        <title>Resultados busqueda</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-panels.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel-noscript.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-desktop.css" />
+        </noscript>
     </head>
-    <body>
 
-        <h:form>
-            <h:inputText value = "#{consultarBean.clave}"/>
-            <h:commandButton value="Buscar" action="#{consultarBean.buscar()}"/>
-            <h:commandButton value="Regresar" action="index" />
-            <h:commandButton value="Cerrar Sesión" action="#{sesion.cerrarSesion()}" rendered="#{sesion.verificarSesion()}"/>
-            <br/>
-            <c:choose>
-                <c:when test="#{consultarBean.resultados.size()!=0}">
+    <body class="homepage">
 
+        <!-- Header -->
+        <div id="header-wrapper">
 
-                    <h:dataTable value="#{consultarBean.resultados}" var="resultado">
+            <div id="header" class="container">
+                <div id="logo"><h1><a href="https://github.com/EquipoQuetzal" target="_blank">Quetzal</a></h1></div>
+                <nav id="nav">
+                    <ul>
+                        <li class="current_page_item" >
+                            <a>Resultados busqueda</a>
+                        </li>
+                        <li>
+                            <h:form>
+                                <h:commandButton class="button-alt" value="Regresar" action="index" />
+                                <h:commandButton class="button-alt" value="Cerrar Sesión" action="#{sesion.cerrarSesion()}" rendered="#{sesion.verificarSesion()}"/>
+                            </h:form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Header Ends Here -->
 
-                        <h:column> 
-                            <h:commandLink action="ConsultarPIH.xhtml">
-                                <h:graphicImage value="/publicaciones/Computers_Computers_technology_042219_.jpg" height="150" width="150" />
-                            </h:commandLink> 
-                        </h:column>     
+        <!-- Featured Area -->
+        <div id="featured-wrapper">
+            <h:form>                    
+                <!-->Alan Alan #################### <-->
+                <h2> <h:outputLabel value="Realiza una busqueda!" /> </h2>
+                <hr/>
+                <h:inputText  value="#{consultarBean.clave}"/>
+                <h:commandButton class="button" value="Buscar en Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
+                <hr/>
+                <!-->Alan Alan #################### <-->                    
 
-                        <h:column>
-                            <f:facet name="header">Id</f:facet>
-                                #{resultado.idpublicacion}
-                        </h:column>
+                <div class="container">
+                    <div class="row double">
 
-                        <h:column >
-                            <f:facet name="header">Descripcion</f:facet>
-                                #{resultado.descripcion}
-                        </h:column>
-                        <h:column >
-                            <f:facet name="header">Precio</f:facet>
-                                #{resultado.precio}
-                        </h:column>
-                        <h:column >
-                            <f:facet name="header">Calificacion</f:facet>
-                                #{resultado.calificacion}
-                        </h:column>
-                        <h:column >
-                            <f:facet name="header">Prestar</f:facet>
-                            <h:commandButton value="Pedir" action="#{PublicacionBean.pedir(resultado)}"/>
-                        </h:column>	
-                    </h:dataTable> 
+                        <c:forEach items="#{consultarBean.resultados}" var="resultado">
 
+                            <section class="4u">
+                                <header>
+                                    <h2>-Publicacion-</h2>
+                                    <h2>ID: #{resultado.idpublicacion} </h2>
+                                    <h2>Precio: #{resultado.precio}</h2>
+                                    <h2>#{resultado.calificacion}</h2>
+                                </header>
+                                <span class="pennant"><span class="fa fa-linux"></span></span>
+                                <p>
+                                    <h2> #{resultado.descripcion} </h2>
+                                </p>
+                                <h:commandButton class="button" value="Pedir"/>
+                                <hr/>
+                            </section>
+                        </c:forEach>
 
-                </c:when>
-                <c:otherwise> 
-                    No se encontraron resultados.
-                </c:otherwise>    
-            </c:choose>
+                    </div>
+                </div>
+            </h:form>
+        </div>		
+        <!-- Featured Ends Here -->
 
-        </h:form>  
-
-
-
-
+        <!-- Copyright -->
+        <div id="copyright" class="container">
+            Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+        </div>
 
     </body>
+
 </html>

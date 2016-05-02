@@ -72,7 +72,7 @@
                                 </h:form>
 
                                 <h:form rendered="#{sesion.verificarSesion()}">
-                                    <h2>-Bienvenido-</h2>
+                                    <h2>-Bienvenid@-</h2>
                                     <span class="byline">
                                         <h:panelGrid columns="">
                                             <h:outputLabel value="Tu nombre es:"/>
@@ -95,35 +95,14 @@
 
         <!-- Featured Area -->
         <div id="featured-wrapper">
-            <!-- ESTO ES PARA EL BUSCADOR Y LAS PUBLICACIONES Y ASI -->
-
             <h:form>                    
                 <!-->Alan Alan #################### <-->
-                <h:outputLabel value="Realiza una busqueda!" />
+                <h2> <h:outputLabel value="Realiza una busqueda!" /> </h2>
+                <hr/>
                 <h:inputText  value="#{consultarBean.clave}"/>
-                <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
-                <!--
-                <h:commandButton value="Ver Guia" action="guiaEn"></h:commandButton> 
-                Unicamente para ver el sitio desde netbeans
-                -->
+                <h:commandButton class="button" value="Buscar en Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
                 <!-->Alan Alan #################### <-->                    
             </h:form>
-
-            <div class="container">
-                <div class="row double">                    
-                    <section class="4u">
-                        <header>
-                            <h2>Maecenas luctus lectus</h2>
-                        </header>
-                        <span class="pennant"><span class="fa fa-apple"></span></span>
-                        <p>
-                            Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo.
-                        </p>
-                        <a href="#" class="button button-style1">Read More</a>
-                    </section>                    
-                </div>
-            </div>
-
         </div>		
         <!-- Featured Ends Here -->
 

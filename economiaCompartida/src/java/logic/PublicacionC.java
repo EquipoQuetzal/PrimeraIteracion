@@ -41,7 +41,6 @@ public class PublicacionC {
             Transaction tx = session.beginTransaction();
             Query q = session.getNamedQuery("BuscarPublicacion").setInteger("id", id);
             resultado = (Publicacion) q.uniqueResult();
-            //Si regresa null, significa que el usuario no esta registrado en la BD, no recuerdo donde afecta eso
             session.close();
             return resultado;
         } catch (Exception e) {

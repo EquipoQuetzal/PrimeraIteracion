@@ -54,7 +54,7 @@
 
                                 <h:outputLabel value="Acceso denegado (Permisos insuficientes)" rendered="#{sesion.usuario.esadmin eq false}" />
 
-                                <h:form>
+                                <h:form rendered="#{sesion.usuario.esadmin}">
                                     <h2>-Opciones de Administrador-</h2>
                                     <span class="byline" style="text-align:left;">
                                         <h:panelGrid columns="2">

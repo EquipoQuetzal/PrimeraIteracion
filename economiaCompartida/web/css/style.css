@@ -877,6 +877,7 @@ a:hover
 	
 	#featured-wrapper .button
 	{
+		font-size: 1.0em;
 		margin-top: 1em;
 	}
 	
@@ -894,9 +895,6 @@ a:hover
 		float: left;
 		margin: 0.85em 2em 0em 0em;
 	}
-
-
-
 
 /* Copyright */
 

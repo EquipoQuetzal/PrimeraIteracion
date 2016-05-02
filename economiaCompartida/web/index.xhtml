@@ -2,65 +2,136 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      >
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
     <head>
-        <title>Inicio de sesion</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="assets/css/main.css" />
+        <title>Pagina Principal</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-panels.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel-noscript.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-desktop.css" />
+        </noscript>
     </head>
 
-    <body>
-        <div id="wrapper">
-            <h:form>
-                <h:messages />
-                <h:form rendered="#{sesion.verificarSesion() eq false}">
-                    <!--> Si el usuario no tiene una sesion abierta que aparezca esto <-->
-                    <!--> Aqui agregar verificacion de sesion (como en valid.xhyml) <!-->
-                    <h1>Iniciar Sesión</h1>		
-                    <h:panelGrid columns="2">		
-                        <h:outputLabel value="Correo" />
-                        <h:inputText value="#{sesion.usuario.correo}"/>
+    <body class="homepage">
 
-                        <h:outputLabel value="Contraseña" />
-                        <h:inputSecret value="#{sesion.usuario.contrasena}" />
+        <!-- Header -->
+        <div id="header-wrapper">
 
-                        <h:commandButton value="Iniciar" action="#{sesion.login()}" />
-                    </h:panelGrid>
-                    <h:commandButton value="Registrarse" action="RegistroIH" />
-                    <!-->Alan Alan #################### <-->
-                    <h:outputLabel value="Haz una Búsqueda" />
-                    <h:inputText  value="#{consultarBean.clave}"/>
-                    <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
-                    <!-->Alan Alan #################### <-->
-                </h:form>
-                <!--> Si ya tiene la sesion iniciada, que muestre hasta arriba opcion de cerrar sesion, si se puede su nombre y correo, y boton a perfil <!-->
+            <div id="header" class="container">
+                <div id="logo"><h1><a href="https://github.com/EquipoQuetzal" target="_blank">Quetzal</a></h1></div>
+                <nav id="nav">
+                    <ul>
+                        <li class="current_page_item" >
+                            <a>Principal</a>
+                        </li>
+                        <li>
+                            <h:form rendered="#{sesion.verificarSesion()}">
+                                <h:commandButton class="button-alt" value="Publicar" action="PublicarOfertaIH"/>
+                                <h:commandButton class="button-alt" value="Panel administrador" action="PanelIH" rendered="#{sesion.usuario.esadmin}"/>
+                                <h:commandButton class="button-alt" value="Cerrar Sesion" action="#{sesion.cerrarSesion()}"/>
+                            </h:form>
 
+                            <h:form rendered="#{sesion.verificarSesion() eq false}">
+                                <h:commandButton class="button-alt" value="Registrarse" action="RegistroIH" />
+                            </h:form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
+            <div id="banner">
+                <div class="container">
+                    <div class="row">
 
-                <!-->PRUEBA TEMPORAL (solo para ver que pasa si intenta acceder al perfil sin iniciar sesion) <-->
-                <h:commandButton value="Perfil de Usuario" action="PerfilIH" rendered="#{sesion.verificarSesion() eq true}" />
-                <h:commandButton value="Cerrar Sesion" action="#{sesion.cerrarSesion()}" rendered="#{sesion.verificarSesion()}" />
-                <h:commandButton value="Publicar" action="PublicarOfertaIH" rendered="#{sesion.verificarSesion()}" />
-                <h:form rendered="#{sesion.verificarSesion() eq true}">    
-                    <!-->Alan Alan #################### <-->
-                    <h:outputLabel value="Haz una Búsqueda" />
-                    <h:inputText  value="#{consultarBean.clave}"/>
-                    <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
-                    <!-->Alan Alan #################### <-->
-                </h:form>
-                <!-->Independientemente de si esta logeado o no debe poder ver una lista de publicaciones existentes en la base de datos (+campo de busqueda)<!-->
-                <!--> Si esta logeado puede calificar o soicitar el prestamo de una publicacion actual<-->    
+                        <section class="12u">                            
+                            <header>
+                                <h:messages style="color:#f00; font-weight:bold; font-size:200%;"/>
+                                <hr/>
+                                <h:form rendered="#{sesion.verificarSesion() eq false}">
+                                    <h2>-Datos para iniciar sesion-</h2>
+                                    <span class="byline">
+                                        <h:panelGrid columns="2">		
+                                            <h:outputLabel value="Correo: " />
+                                            <h:inputText pt:placeholder="correo@ejemplo.com" value="#{sesion.usuario.correo}"/>
 
-            </h:form>
+                                            <h:outputLabel value="Contraseña: " />
+                                            <h:inputSecret value="#{sesion.usuario.contrasena}" />
 
-            <!--> Seria bueno agregar un ejemplo de "for" que muestre los contenidos de la base de datos, solo para saber como hacerlo <-->
+                                            <h:commandButton class="button" value="Iniciar sesion" action="#{sesion.login()}" />
+                                        </h:panelGrid>
+                                    </span>
+                                </h:form>
 
-            <footer id="footer">
-                <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
-            </footer>
+                                <h:form rendered="#{sesion.verificarSesion()}">
+                                    <h2>-Bienvenido-</h2>
+                                    <span class="byline">
+                                        <h:panelGrid columns="">
+                                            <h:outputLabel value="Tu nombre es:"/>
+                                            <h:outputLabel style="font-weight:bold;" value="#{sesion.usuario.nombre}"/>
+                                            <h:outputLabel value="Tu correo es:"/>
+                                            <h:outputLabel style="font-weight:bold;" value="#{sesion.usuario.correo}"/>
+                                        </h:panelGrid>	
+                                    </span>
+                                </h:form>
+
+                            </header>
+                        </section>
+
+                    </div>
+                </div>
+            </div>			
 
         </div>
+        <!-- Header Ends Here -->
+
+        <!-- Featured Area -->
+        <div id="featured-wrapper">
+            <!-- ESTO ES PARA EL BUSCADOR Y LAS PUBLICACIONES Y ASI -->
+
+            <h:form>                    
+                <!-->Alan Alan #################### <-->
+                <h:outputLabel value="Realiza una busqueda!" />
+                <h:inputText  value="#{consultarBean.clave}"/>
+                <h:commandButton value="Buscar Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
+                <!--
+                <h:commandButton value="Ver Guia" action="guiaEn"></h:commandButton> 
+                Unicamente para ver el sitio desde netbeans
+                -->
+                <!-->Alan Alan #################### <-->                    
+            </h:form>
+
+            <div class="container">
+                <div class="row double">                    
+                    <section class="4u">
+                        <header>
+                            <h2>Maecenas luctus lectus</h2>
+                        </header>
+                        <span class="pennant"><span class="fa fa-apple"></span></span>
+                        <p>
+                            Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo.
+                        </p>
+                        <a href="#" class="button button-style1">Read More</a>
+                    </section>                    
+                </div>
+            </div>
+
+        </div>		
+        <!-- Featured Ends Here -->
+
+        <!-- Copyright -->
+        <div id="copyright" class="container">
+            Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+        </div>
+
     </body>
+
 </html>

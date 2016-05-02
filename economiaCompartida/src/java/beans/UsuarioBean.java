@@ -59,7 +59,7 @@ public class UsuarioBean {
             return "RegistroIH";
         }catch(org.hibernate.exception.ConstraintViolationException ex){
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Correo Invalido o Existente ", null);
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Correo Invalido o ya existente ", null);
             faceContext.addMessage(null, message);
             return "RegistroIH";
         }catch(Exception e){ //Excepcion general (Acotar excepciones especificas, para saber si correo repetido o demas)
@@ -68,10 +68,8 @@ public class UsuarioBean {
             faceContext.addMessage(null, message);
             return "RegistroIH";
         }
-        //org.hibernate.exception.ConstraintViolationException (formato de correo incorrecto)
                 
             return "index"; //Se registro correctamente el usuario
-            //(TEMPORAL), ya que este bien implementado, mandar a pagina de perfil con sesion iniciada
     }
     
     public Usuario getUsuario(){

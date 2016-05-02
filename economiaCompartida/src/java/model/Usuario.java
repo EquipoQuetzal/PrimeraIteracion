@@ -34,7 +34,6 @@ public class Usuario  implements java.io.Serializable {
      private Set publicacionsForIdusuario = new HashSet(0);
 
     public Usuario() {
-        nombre = "Visitante";
         esadmin = false;
         calificacion = 0;
     }

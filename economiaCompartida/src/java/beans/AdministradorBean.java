@@ -18,6 +18,7 @@ import logic.UsuarioC;
 import model.Usuario;
 import model.Publicacion;
 import logic.PublicacionC;
+
 /**
  *
  * @author oem
@@ -25,7 +26,7 @@ import logic.PublicacionC;
 @ManagedBean
 @RequestScoped
 @ApplicationScoped
-public class AdministradorBean{
+public class AdministradorBean {
 
     private Usuario usuario = new Usuario();    //Representa al usuario actual
     private Publicacion publicacion = new Publicacion();
@@ -34,75 +35,76 @@ public class AdministradorBean{
     private FacesMessage message; // Permite el envio de mensajes entre el bean y la vista.
     private PublicacionC helper2;
     private UsuarioC helper;
-    
-    public AdministradorBean(){
+
+    public AdministradorBean() {
         faceContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) faceContext.getExternalContext().getRequest();
         helper = new UsuarioC();
         helper2 = new PublicacionC();
     }
 
-    public String borrarUsuario(){
-        
-        System.out.println("|-| Recibido correo en vista: "+usuario.getCorreo());
+    public String borrarUsuario() {
+        System.out.println("|-| Recibido correo en vista: " + usuario.getCorreo());
         model.Usuario usuarioBD = helper.buscarPorCorreo(usuario.getCorreo());
         if (usuarioBD != null) {
             try {
-                System.out.println("|-| Usuario encontrado en la base de datos: "+usuarioBD.getCorreo()+"|"+usuarioBD.getContrasena());
-                usuario = usuarioBD;                
+                System.out.println("|-| Usuario encontrado en la base de datos: " + usuarioBD.getCorreo() + "|" + usuarioBD.getContrasena());
+                usuario = usuarioBD;
                 //Borrando al usuario
-                helper.borrarUsuarioBD(usuario);  
-                message = new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario del correo: "+ usuario.getCorreo()+" ha sido borrado.", null);
+                helper.borrarUsuarioBD(usuario);
+                message = new FacesMessage(FacesMessage.SEVERITY_INFO, "El usuario del correo: " + usuario.getCorreo() + " ha sido borrado.", null);
                 faceContext.addMessage(null, message);
             } catch (Exception ex) {
                 Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
                 // Agregar bien el mensaje de la excepcion
             }
         } else { //El correo es incorrecto (Pues no se encontro ningun usuario con ese correo)
-            System.out.println("|-| El correo: "+usuario.getCorreo()+" no esta en la base de datos");
-            message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"El correo: "+ usuario.getCorreo()+" no existe en la base de datos.", null);
+            System.out.println("|-| El correo: " + usuario.getCorreo() + " no esta en la base de datos");
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "El correo: " + usuario.getCorreo() + " no existe en la base de datos.", null);
             faceContext.addMessage(null, message);
             return "BorrarUsuarioIH";
         }
         return "BorrarUsuarioIH";
     }
-    
-    public String borrarPublicacion(){
-        
-        System.out.println("|-| Recibido id en la vista: "+publicacion.getIdpublicacion());
+
+    public String borrarPublicacion() {
+        System.out.println("|-| Recibido id en la vista: " + publicacion.getIdpublicacion());
         model.Publicacion publicacionBD = helper2.buscarPublicacion(publicacion.getIdpublicacion());
         if (publicacionBD != null) {
             try {
                 //System.out.println("|-| Usuario encontrado en la base de datos: "+ publicacionBD.getIdpublicacion()+"|"+usuarioBD.getContrasena());
-                publicacion = publicacionBD;                
+                publicacion = publicacionBD;
                 //Borrando la publicacion
-                helper2.borrarPublicacionBD(publicacion);  
-                message = new FacesMessage(FacesMessage.SEVERITY_INFO,"La publicacion con el id: "+ publicacion.getIdpublicacion()+" ha sido borrada.", null);
+                helper2.borrarPublicacionBD(publicacion);
+                message = new FacesMessage(FacesMessage.SEVERITY_INFO, "La publicacion con el id: " + publicacion.getIdpublicacion() + " ha sido borrada.", null);
                 faceContext.addMessage(null, message);
             } catch (Exception ex) {
                 Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
                 // Agregar bien el mensaje de la excepcion
             }
         } else { //El correo es incorrecto (Pues no se encontro ningun usuario con ese correo)
-            System.out.println("|-| El correo: "+publicacion.getIdpublicacion()+" no esta en la base de datos");
-            message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"La publicacion con el ID: "+ publicacion.getIdpublicacion() +" no existe.", null);
+            System.out.println("|-| El correo: " + publicacion.getIdpublicacion() + " no esta en la base de datos");
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "La publicacion con el ID: " + publicacion.getIdpublicacion() + " no existe.", null);
             faceContext.addMessage(null, message);
             return "BorrarPublicacionIH";
         }
         return "BorrarPublicacionIH";
     }
-    public Usuario getUsuario(){
+
+    public Usuario getUsuario() {
         return usuario;
     }
-    
+
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public Publicacion getPublicacion(){
+
+    public Publicacion getPublicacion() {
         return publicacion;
     }
-    public void setPublicacion(Publicacion publicacion){
+
+    public void setPublicacion(Publicacion publicacion) {
         this.publicacion = publicacion;
     }
-    
+
 }

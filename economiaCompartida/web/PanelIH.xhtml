@@ -1,33 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-<head>
-    <title>Panel de Administrador</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
+    <head>
+        <title>Panel administrador</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-panels.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel-noscript.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-desktop.css" />
+        </noscript>
+    </head>
 
-<body>
-    <div id="wrapper">
-        <h:messages />
-        
-        <!--> Esto ocurrira si el usuario no ha iniciado sesion e intenta acceder a esta pagina <-->
-	<h:outputLabel value="Acceso denegado (Permisos insuficientes)" rendered="#{sesion.verificarSesion() eq false}" />
-        
-        <!--> Esto ocurre cuando el usuario ya tiene una sesion iniciada <-->
-	<h:form rendered="#{sesion.verificarSesion()}">            
-            <h:panelGrid columns="">                
-                <h:commandButton value="Borrar Usuario" action="BorrarUsuarioIH"/>                
-                <h:commandButton value="Borrar Publicacion" action="BorrarPublicacionIH"/>
-                
-                <!-->REVISAR BIEN ESTO, cuando se regresa al perfil de usuario ya esta cerrada la sesion :s quizas haya que cambiar
-                     la etiqueta del bean Sesion.java <-->
-                <h:commandButton value="Perfil de Usuario" action="PerfilIH" />
-            </h:panelGrid>		
-	</h:form>
-    </div>
-</body>
+    <body class="homepage">
+
+        <!-- Header -->
+        <div id="header-wrapper">
+
+            <div id="header" class="container">
+                <div id="logo"><h1><a href="https://github.com/EquipoQuetzal" target="_blank">Quetzal</a></h1></div>
+                <nav id="nav">
+                    <ul>
+                        <li class="current_page_item" >
+                            <a>Panel Administrador</a>
+                        </li>
+                        <li>
+                            <h:form>
+                                <h:commandButton class="button-alt" value="Regresar" action="index" />
+                                <h:commandButton class="button-alt" value="Cerrar Sesión" action="#{sesion.cerrarSesion()}"/>
+                            </h:form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="banner">
+                <div class="container">
+                    <div class="row">
+
+                        <section class="12u">                            
+                            <header>
+                                <h:messages style="color:#f00; font-weight:bold; font-size:200%;"/>
+                                <hr/>
+
+                                <h:outputLabel value="Acceso denegado (Permisos insuficientes)" rendered="#{sesion.usuario.esadmin eq false}" />
+
+                                <h:form rendered="#{sesion.usuario.esadmin}">
+                                    <h2>-Opciones de Administrador-</h2>
+                                    <span class="byline" style="text-align:left;">
+                                        <h:panelGrid columns="2">
+                                            <h:commandButton class="button" value="Borrar Usuario" action="BorrarUsuarioIH"/>
+                                            <h:commandButton class="button" value="Borrar Publicacion" action="BorrarPublicacionIH"/>
+                                        </h:panelGrid>
+                                    </span>
+                                </h:form>
+
+                            </header>
+                        </section>
+
+                    </div>
+                </div>
+            </div>			
+
+        </div>
+        <!-- Header Ends Here -->
+
+        <!-- Copyright -->
+        <div id="copyright" class="container">
+            Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+        </div>
+
+    </body>
+
 </html>

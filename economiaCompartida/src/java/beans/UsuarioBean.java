@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import logic.UsuarioC;
 import model.Usuario;
+import org.hibernate.exception.ConstraintViolationException;
 /**
  *
  * @author oem
@@ -56,16 +57,19 @@ public class UsuarioBean {
             System.out.println("|-| Algo raro paso con el algoritmo de cifrado");
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             return "RegistroIH";
+        }catch(org.hibernate.exception.ConstraintViolationException ex){
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Correo Invalido o ya existente ", null);
+            faceContext.addMessage(null, message);
+            return "RegistroIH";
         }catch(Exception e){ //Excepcion general (Acotar excepciones especificas, para saber si correo repetido o demas)
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, e);
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocurrio la excepcion: "+e, null);
             faceContext.addMessage(null, message);
             return "RegistroIH";
         }
-        //org.hibernate.exception.ConstraintViolationException (formato de correo incorrecto)
                 
             return "index"; //Se registro correctamente el usuario
-            //(TEMPORAL), ya que este bien implementado, mandar a pagina de perfil con sesion iniciada
     }
     
     public Usuario getUsuario(){
@@ -75,5 +79,8 @@ public class UsuarioBean {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+  
+    public boolean verificarAdmin(){
+        return usuario.getEsadmin();
+    }
 }

@@ -36,6 +36,9 @@ public class Sesion {
     public Sesion(){
         faceContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) faceContext.getExternalContext().getRequest();
+        usuario = (Usuario) httpServletRequest.getSession().getAttribute("sessionUsuario");
+        if (usuario == null)
+            usuario = new Usuario();
         helper = new SesionC();
     }
     
@@ -51,36 +54,28 @@ public class Sesion {
         model.Usuario usuarioBD = helper.autentificar(usuario);
         if (usuarioBD != null) {
             try {
-                System.out.println("|-| Usuario encontrado en la base de datos: "+usuarioBD.getCorreo()+"|"+usuarioBD.getContrasena());
                 MessageDigest md = MessageDigest.getInstance("MD5");
-                System.out.println("|-| Nombre ingresado: "+usuario.getNombre()+", Correo ingresado: "+usuario.getCorreo());
-                System.out.println("|-| Contrasena introducida: "+usuario.getContrasena());
                 md.update(usuario.getContrasena().getBytes());
                 byte[] digest = md.digest();
                 StringBuilder sb = new StringBuilder();
                 for (byte b : digest) {
                     sb.append(String.format("%02x", b & 0xff));
-                }
-                System.out.println("|-| Contrasena introducida cifrada: "+sb.toString());                
+                }               
                 if (sb.toString().equals(usuarioBD.getContrasena())) { //La contrasena introducida coincide con la encontrada en la base de datos
-                    System.out.println("|-| La contrasena introducida es correcta! Ingresando al sistema");
                     usuario = usuarioBD; // Guardamos los datos de la BD en la sesion para futuro uso
                     httpServletRequest.getSession().setAttribute("sessionUsuario", usuario); //Ponemos los datos de entrada en el servlet (sessionUsuario)
                     message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
                     faceContext.addMessage(null, message);
-                    return "PerfilIH";
+                    return "index";
                 }else{ //Contrasena incorrecta
-                    System.out.println("|-| La contrasena: "+usuario.getContrasena()+" del usuario "+usuario.getCorreo()+" es incorrecta");
                     message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "La contrasena introducida es incorrecta.", null);
                     faceContext.addMessage(null, message);
                     return "index";
                 }
             } catch (NoSuchAlgorithmException ex) {
-                System.out.println("|-| Algo raro paso con el algoritmo de cifrado");
                 Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else { //El usuario no ha sido registrado
-            System.out.println("|-| El correo: "+usuario.getCorreo()+" no esta en la base de datos");
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"El correo: "+ usuario.getCorreo()+" no existe en la base de datos.", null);
             faceContext.addMessage(null, message);
             return "index";
@@ -89,7 +84,7 @@ public class Sesion {
     }
     
     public String cerrarSesion() {
-	//FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); // Asi lo tengo yo en mi practica
+	FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); // Asi lo tengo yo en mi practica
         httpServletRequest.getSession().removeAttribute("sessionUsuario");
         message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
         faceContext.addMessage(null, message);

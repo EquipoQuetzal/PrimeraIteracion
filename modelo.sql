@@ -1,4 +1,7 @@
-set client_encoding = 'utf-8'; 
+set client_encoding = 'utf-8';
+
+-- El nombre de la base debe ser "economiaCompartida" (Creo que existe un "CREATE DATABASE" pero no estoy seguro)
+
 
 CREATE TABLE usuario(
    idUsuario      SERIAL PRIMARY KEY,
@@ -48,7 +51,3 @@ CREATE TABLE galeria(
 comment on table galeria
 is
 'Relacion galeria guarda las fotografías de cada publicacion';
-
---Insertar tuplas en la base de datos para probar el inicio de sesion (antes del caso de uso Registrar)
---O para insertar administradores
---INSERT INTO usuario (nombre, correo, contrasena, calificacion, esAdmin) VALUES ('kike','kike@mail.com',md5('kike'),0,true);

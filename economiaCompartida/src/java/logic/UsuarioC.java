@@ -49,15 +49,10 @@ public class UsuarioC {
     
     // Quizas regresar booleano que indique si se elimino correctamente    
     public void borrarUsuarioBD(Usuario usuario){
-        try{
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             session.delete(usuario);
             session.getTransaction().commit();
-        }catch (Exception e) {
-            // Esto nunca deberia pasar porque ya sacamos anteriormente al usuario de la base de datos
-            e.printStackTrace();
-        }
-    }    
+    }
     
 }

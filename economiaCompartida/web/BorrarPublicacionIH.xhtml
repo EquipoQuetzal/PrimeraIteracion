@@ -59,7 +59,14 @@
                                             <h:outputLabel value="ID publicacion: " />
                                             <h:inputText pt:placeholder="ID" value="#{administradorBean.publicacion.idpublicacion}" />
                                             
-                                            <h:commandButton class="button" value="Borrar" action="#{administradorBean.borrarPublicacion()}" />			                                                                        
+                                            <p:commandButton class="button" value="Borrar" action="#{administradorBean.borrarPublicacion()}">
+                                                <p:confirm header="Confirmacion" message="Estas seguro?" icon="ui-icon-alert" />
+                                            </p:commandButton>
+                                            <p:confirmDialog global="true" showEffect="fade">
+                                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                            </p:confirmDialog>
+                                            
                                         </h:panelGrid>
                                     </span>
                                 </h:form>

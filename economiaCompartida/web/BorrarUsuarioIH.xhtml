@@ -50,7 +50,7 @@
 
                         <section class="12u">                            
                             <header>
-                                <p:messages id="messages" showDetail="false" autoUpdate="true" />
+                                <p:messages id="message" showDetail="false" autoUpdate="true" />
                                 <hr/>
                                 <h:form>
                                     <h2>-Indicar el correo del usuario a eliminar-</h2>
@@ -58,7 +58,15 @@
                                         <h:panelGrid columns="2">
                                             <h:outputLabel value="Correo: " />
                                             <h:inputText pt:placeholder="malo@mail.com" value="#{administradorBean.usuario.correo}" />
-                                            <h:commandButton class="button" value="Borrar" action="#{administradorBean.borrarUsuario()}" />			                                                                        
+                                            
+                                            <p:commandButton class="button" value="Borrar" action="#{administradorBean.borrarUsuario()}">
+                                                <p:confirm header="Confirmacion" message="Estas seguro?" icon="ui-icon-alert" />
+                                            </p:commandButton>
+                                            <p:confirmDialog global="true" showEffect="fade">
+                                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                            </p:confirmDialog>
+
                                         </h:panelGrid>
                                     </span>
                                 </h:form>

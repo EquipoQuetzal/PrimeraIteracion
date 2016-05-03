@@ -52,18 +52,20 @@
             <p:messages id="messages" showDetail="false" autoUpdate="true" />
             <h:form>                    
                 <!-->Alan Alan #################### <-->
-                <h2> <h:outputLabel value="Realiza una busqueda!" /> </h2>
+                <h2> <p:outputLabel value="Realiza una busqueda!" /> </h2>
                 <hr/>
-                <h:inputText  value="#{consultarBean.clave}"/>
+                <p:inputText  value="#{consultarBean.clave}"/>
+                <br></br>
                 <h:commandButton class="button" value="Buscar en Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
                 <hr/>
                 <!-->Alan Alan #################### <-->                    
 
                 <div class="container">
                     <div class="row double">
-
+                        
+                        <h2><h:outputLabel value="No se obtuvo ningun resultado :(" rendered="#{empty consultarBean.resultados}"/></h2>
+                        
                         <c:forEach items="#{consultarBean.resultados}" var="resultado">
-
                             <section class="4u">
                                 <header>
                                     <h2>-Publicacion-</h2>
@@ -75,7 +77,7 @@
                                 <p>
                                     <h2> #{resultado.descripcion} </h2>
                                 </p>
-                                <h:commandButton class="button" value="Pedir"/>
+                                <h:commandButton class="button" value="Pedir" rendered="#{sesion.verificarSesion()}"/>
                                 <hr/>
                             </section>
                         </c:forEach>

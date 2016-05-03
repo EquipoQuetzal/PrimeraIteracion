@@ -33,12 +33,17 @@ public class ConsultarBean {
     public ConsultarBean(){       
         faceContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) faceContext.getExternalContext().getRequest();
-    }
-    
+    }    
+    /**
+     * Método que busca en la base de datos todas la publicaciones que coinciden 
+     * con el termino de búsqueda del tributo clave.
+     * @return Una cadena que indica la vista donde se mostrarán los resultados.
+     */
     public String buscar(){
        termino = new ConsultarC();
        this.resultados = new ArrayList<>();
-       System.out.println("clave: " + clave);
+       if(this.clave.length()<=0)
+           return "ConsultarIH";           
        this.resultados = (ArrayList<Publicacion>) termino.buscar(clave);       
        return "ConsultarIH";
     }

@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
@@ -58,15 +59,15 @@
                                         <h:panelGrid columns="2">
                                             <h:outputLabel value="ID publicacion: " />
                                             <h:inputText pt:placeholder="ID" value="#{administradorBean.publicacion.idpublicacion}" />
-                                            
-                                            <p:commandButton class="button" value="Borrar" action="#{administradorBean.borrarPublicacion()}">
+
+                                            <p:commandButton class="button" value="Borrar" action="#{administradorBean.borrarPublicacion()}" update="listado">
                                                 <p:confirm header="Confirmacion" message="Estas seguro?" icon="ui-icon-alert" />
                                             </p:commandButton>
                                             <p:confirmDialog global="true" showEffect="fade">
                                                 <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
                                                 <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
                                             </p:confirmDialog>
-                                            
+
                                         </h:panelGrid>
                                     </span>
                                 </h:form>
@@ -80,6 +81,37 @@
 
         </div>
         <!-- Header Ends Here -->
+
+        <!-- Featured Area -->
+        <div id="featured-wrapper">
+            <h:form id="listado">
+                <h2> <p:outputLabel value="Listado de publicaciones actuales:" /> </h2>
+                <hr/>
+
+                <div class="container">
+                    <div class="row double">
+                        <c:forEach items="#{consultarBean.resultadosPublicaciones}" var="resultado">
+                            <section class="4u">
+                                <header>
+                                    <h2>-Publicacion-</h2>
+                                    <h2>ID: #{resultado.idpublicacion} </h2>
+                                    <h2>Precio: #{resultado.precio}</h2>
+                                    <h2>#{resultado.calificacion}</h2>
+                                </header>
+                                <span class="pennant"><span class="fa fa-trello"></span></span>
+                                <p>
+                                    <h2> #{resultado.descripcion} </h2>
+                                </p>
+                                <hr/>
+                            </section>
+                        </c:forEach>
+
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
+        <!-- Featured Ends Here -->
 
         <!-- Copyright -->
         <div id="copyright" class="container">

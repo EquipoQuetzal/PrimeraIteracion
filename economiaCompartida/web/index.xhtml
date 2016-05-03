@@ -2,9 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-    <head>
+    <h:head>
         <title>Pagina Principal</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
@@ -19,9 +20,9 @@
             <link rel="stylesheet" href="css/style.css" />
             <link rel="stylesheet" href="css/style-desktop.css" />
         </noscript>
-    </head>
+    </h:head>
 
-    <body class="homepage">
+    <h:body class="homepage">
 
         <!-- Header -->
         <div id="header-wrapper">
@@ -54,17 +55,17 @@
 
                         <section class="12u">                            
                             <header>
-                                <h:messages style="color:#f00; font-weight:bold; font-size:200%;"/>
+                                <p:messages id="messages" showDetail="false" autoUpdate="true" />
                                 <hr/>
                                 <h:form rendered="#{sesion.verificarSesion() eq false}">
                                     <h2>-Datos para iniciar sesion-</h2>
                                     <span class="byline">
-                                        <h:panelGrid columns="2">		
-                                            <h:outputLabel value="Correo: " />
-                                            <h:inputText pt:placeholder="correo@ejemplo.com" value="#{sesion.usuario.correo}"/>
+                                        <h:panelGrid columns="1">
+                                            <h:outputLabel value="Correo: "/>
+                                            <p:inputText pt:placeholder="correo@ejemplo.com" value="#{sesion.usuario.correo}"/>
 
                                             <h:outputLabel value="Contraseña: " />
-                                            <h:inputSecret value="#{sesion.usuario.contrasena}" />
+                                            <p:password value="#{sesion.usuario.contrasena}" />
 
                                             <h:commandButton class="button" value="Iniciar sesion" action="#{sesion.login()}" />
                                         </h:panelGrid>
@@ -74,11 +75,11 @@
                                 <h:form rendered="#{sesion.verificarSesion()}">
                                     <h2>-Bienvenid@-</h2>
                                     <span class="byline">
-                                        <h:panelGrid columns="">
+                                        <h:panelGrid columns="1">
                                             <h:outputLabel value="Tu nombre es:"/>
-                                            <h:outputLabel style="font-weight:bold;" value="#{sesion.usuario.nombre}"/>
+                                            <p:outputLabel style="font-weight:bold;" value="#{sesion.usuario.nombre}"/>
                                             <h:outputLabel value="Tu correo es:"/>
-                                            <h:outputLabel style="font-weight:bold;" value="#{sesion.usuario.correo}"/>
+                                            <p:outputLabel style="font-weight:bold;" value="#{sesion.usuario.correo}"/>
                                         </h:panelGrid>	
                                     </span>
                                 </h:form>
@@ -97,9 +98,9 @@
         <div id="featured-wrapper">
             <h:form>                    
                 <!-->Alan Alan #################### <-->
-                <h2> <h:outputLabel value="Realiza una busqueda!" /> </h2>
+                <h2> <p:outputLabel value="Realiza una busqueda!" /> </h2>
                 <hr/>
-                <h:inputText  value="#{consultarBean.clave}"/>
+                <p:inputText  value="#{consultarBean.clave}"/>
                 <h:commandButton class="button" value="Buscar en Publicaciones" action="#{consultarBean.buscar()}"></h:commandButton>
                 <!-->Alan Alan #################### <-->                    
             </h:form>
@@ -111,6 +112,6 @@
             Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
         </div>
 
-    </body>
+    </h:body>
 
 </html>

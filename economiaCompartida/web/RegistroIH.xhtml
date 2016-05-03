@@ -2,9 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-    <head>
+    <h:head>
         <title>Registro</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
@@ -19,9 +20,9 @@
             <link rel="stylesheet" href="css/style.css" />
             <link rel="stylesheet" href="css/style-desktop.css" />
         </noscript>
-    </head>
+    </h:head>
 
-    <body class="homepage">
+    <h:body class="homepage">
 
         <!-- Header -->
         <div id="header-wrapper">
@@ -48,21 +49,29 @@
 
                         <section class="12u">                            
                             <header>
-                                <h:messages style="color:#f00; font-weight:bold; font-size:200%;"/>
+                                <!-- <h:messages style="color:#f00; font-weight:bold; font-size:200%;"/> -->
+                                <p:messages id="messages" showSummary="false" showDetail="true" autoUpdate="true" />
                                 <hr/>
                                 <h:form>
                                     <h2>-Formulario de registro-</h2>
                                     <span class="byline">
-                                        <h:panelGrid columns="2">		
+                                        <h:panelGrid columns="1">
                                             <h:outputLabel value="Usuario: "/>
-                                            <h:inputText pt:placeholder="Visitante" value="#{usuarioBean.usuario.nombre}"/>
-
+                                            <p:inputText pt:placeholder="Visitante" value="#{usuarioBean.usuario.nombre}"/>
+                                            
                                             <h:outputLabel value="Correo: " />
-                                            <h:inputText pt:placeholder="correo@ejemplo.com" value="#{usuarioBean.usuario.correo}"/>
+                                            <p:inputText pt:placeholder="correo@ejemplo.com" value="#{usuarioBean.usuario.correo}"/>
 
-                                            <h:outputLabel value="Contraseña: "/>
-                                            <h:inputSecret value="#{usuarioBean.usuario.contrasena}" />
+                                            <h:outputLabel for="pwd1" value="Contraseña: "/>
+                                            <p:password id="pwd1" value="#{usuarioBean.usuario.contrasena}" match="pwd2" label="Contraseña" required="true"
+                                                        placeholder="Contraseña"/>
+                                            <!-- <h:inputSecret value="#{usuarioBean.usuario.contrasena}" /> -->
 
+                                            <h:outputLabel for="pwd2" value="Confirmacion contraseña: "/>
+                                            <!-- <h:inputSecret value="#{usuarioBean.usuario.contrasena}" /> -->
+                                            <p:password id="pwd2" value="#{usuarioBean.usuario.contrasena}" label="Confirmacion" required="true"
+                                                        placeholder="Confirmacion"/>
+                                            
                                             <h:commandButton class="button" value="Registrarse" action="#{usuarioBean.registrar()}" />	
                                         </h:panelGrid>
                                     </span>
@@ -83,6 +92,6 @@
             Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
         </div>
 
-    </body>
+    </h:body>
 
 </html>

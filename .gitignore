@@ -1,6 +1,6 @@
 .gitignore_global
 */target/
-nbproject/private
+/nbproject/private/
 nb-configuration.xml
 javadoc/
 /build/

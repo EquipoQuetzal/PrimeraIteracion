@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
     <head>
@@ -49,7 +50,7 @@
 
                         <section class="12u">                            
                             <header>
-                                <h:messages style="color:#f00; font-weight:bold; font-size:200%;"/>
+                                <p:messages id="messages" showDetail="false" autoUpdate="true" />
                                 <hr/>
                                 <h:form>
                                     <h2>-Indicar el correo del usuario a eliminar-</h2>

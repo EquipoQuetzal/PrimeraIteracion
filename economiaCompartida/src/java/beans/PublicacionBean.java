@@ -58,9 +58,11 @@ public class PublicacionBean {
         return false;
     }
 
-    public void pedir(Publicacion publi) {
-        System.out.print(publi.getIdpublicacion());
-        helper.prestarPublicacion(publi, usuario);
+    public String pedir(){
+        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Tu peticion de prestamo fue recibida", null);
+        faceContext.addMessage(null, message);
+        //helper.prestarPublicacion(publi, usuario); 2NDA Iteracion, falta mucho
+        return "ConsultarIH";
     }
 
     public Publicacion getPublicacion() {

@@ -5,8 +5,12 @@
         <group>
             <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/model/Publicacion.java</file>
+            <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/beans/AdministradorBean.java</file>
+            <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/beans/PublicacionBean.java</file>
             <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/beans/UsuarioBean.java</file>
+            <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/logic/SesionC.java</file>
             <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/logic/PublicacionC.java</file>
+            <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/logic/UsuarioC.java</file>
             <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/web/PanelIH.xhtml</file>
             <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/src/java/beans/Sesion.java</file>
             <file>file:/C:/Users/Kikinzco/Desktop/Escuela/Semestre%206/Ingenieria%20De%20Software/PrimeraIteracion/economiaCompartida/web/ConsultarIH.xhtml</file>

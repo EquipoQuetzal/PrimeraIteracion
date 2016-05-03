@@ -48,7 +48,6 @@ public class UsuarioBean {
             for (byte b : digest)
               sb.append(String.format("%02x", b & 0xff));            
             usuario.setContrasena(sb.toString());
-            System.out.println(usuario.getContrasena());
             helper.registrarBD(usuario);
             //asignar a sessionUsuario (pork iniciara sesion automaticamente el usuario k se registro)
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro finalizado correctamente", null);
@@ -58,6 +57,7 @@ public class UsuarioBean {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             return "RegistroIH";
         }catch(org.hibernate.exception.ConstraintViolationException ex){
+            helper.getSession().getTransaction().rollback();
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Correo Invalido o ya existente ", null);
             faceContext.addMessage(null, message);

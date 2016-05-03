@@ -25,9 +25,11 @@ public class UsuarioC {
     public void registrarBD(Usuario usuario){        
             Transaction tx = session.beginTransaction();
             session.save(usuario);
-            session.getTransaction().commit();
-            // q.executeUpdate(); //buscar como guardar el usuario en la base de datos, aun no sabemos bien como, quizas sea con .save(modelo)
-
+            tx.commit();
+    }
+    
+    public Session getSession(){
+        return session;
     }
     
     public Usuario buscarPorCorreo(String correo){

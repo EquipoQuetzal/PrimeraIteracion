@@ -56,14 +56,14 @@ public class PublicacionC {
             session.delete(publicacion);
             session.getTransaction().commit();
         } catch (Exception e) {
-            // Esto nunca deberia pasar porque ya sacamos anteriormente al usuario de la base de datos
+            // Esto nunca deberia pasar porque ya sacamos anteriormente la publiccion de la base de datos
             e.printStackTrace();
         }
     }
 
     public void prestarPublicacion(Publicacion publicacion, Usuario usu) {
-        if (publicacion.getUsuarioByIdusuario() != null) {
-            //usuario.setIdusuario(idUsuario); //Checar como extraer el id del usuario alctual  
+        if (publicacion.getUsuarioByIdusuario() != null) { //Como no tiene ningun candidato la publicacion, se puede pedir prestada
+            //usuario.setIdusuario(idUsuario); //Checar como extraer el id del usuario actual  
             Transaction tx = session.beginTransaction();
             publicacion.setUsuarioByIdprestatario(usu);
             session.update(publicacion);

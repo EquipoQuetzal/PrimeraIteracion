@@ -1,6 +1,6 @@
 .gitignore_global
 */target/
-nbproject/private
+/nbproject/private/
 nb-configuration.xml
 javadoc/
 /build/
@@ -13,3 +13,4 @@ projectile.cache
 .recentf
 ac-comphist.dat
 /economiaCompartida/dist/
+/economiaCompartida/build/

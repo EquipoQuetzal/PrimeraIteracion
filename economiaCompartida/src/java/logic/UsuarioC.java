@@ -25,9 +25,11 @@ public class UsuarioC {
     public void registrarBD(Usuario usuario){        
             Transaction tx = session.beginTransaction();
             session.save(usuario);
-            session.getTransaction().commit();
-            // q.executeUpdate(); //buscar como guardar el usuario en la base de datos, aun no sabemos bien como, quizas sea con .save(modelo)
-
+            tx.commit();
+    }
+    
+    public Session getSession(){
+        return session;
     }
     
     public Usuario buscarPorCorreo(String correo){
@@ -47,15 +49,10 @@ public class UsuarioC {
     
     // Quizas regresar booleano que indique si se elimino correctamente    
     public void borrarUsuarioBD(Usuario usuario){
-        try{
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             session.delete(usuario);
             session.getTransaction().commit();
-        }catch (Exception e) {
-            // Esto nunca deberia pasar porque ya sacamos anteriormente al usuario de la base de datos
-            e.printStackTrace();
-        }
-    }    
+    }
     
 }

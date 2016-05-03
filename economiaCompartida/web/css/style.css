@@ -711,7 +711,6 @@ a:hover
 		.fa-vimeo-square:before{content:"\f194"}
 		.fa-turkish-lira:before,.fa-try:before{content:"\f195"}
 
-
 	/* FA Icons */
 		
 		.pennant
@@ -763,10 +762,14 @@ a:hover
 	header .byline
 	{
 		display: block;
-		margin: 1em 0em;
+		margin: 1em 4em;
 		line-height: 1.5em;
 		font-weight: 200;
 		color: rgba(255,255,255,.9);
+	}
+
+	.panelGridCenter {
+    margin: 0 auto;
 	}
 
 /* Banner */
@@ -789,7 +792,7 @@ a:hover
 
 	#banner header .byline
 	{
-		padding: 0em 16em;
+		padding: 0em 12em;
 		font-size: 2.2em;
 	}
 	
@@ -920,10 +923,3 @@ a:hover
 	{
 		text-decoration: none;
 	}
-
-
-
-
-
-
-

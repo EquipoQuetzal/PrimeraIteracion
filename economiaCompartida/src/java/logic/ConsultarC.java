@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import model.Publicacion;
 import java.util.*;
+import model.Usuario;
 
 /**
  *
@@ -17,6 +18,8 @@ import java.util.*;
 public class ConsultarC {
 
     private ArrayList<Publicacion> resultados;
+    private ArrayList<Usuario> resultadosUsuario;
+    private ArrayList<Publicacion> resultadosPublicaciones;
     private Session session;
 
     public ConsultarC() {
@@ -64,13 +67,39 @@ public class ConsultarC {
         }
         return resultados;
     }
+
+    public List<Usuario> buscarUsuarios() {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery("select * from usuario").addEntity(Usuario.class);
+            resultadosUsuario = (ArrayList<Usuario>) q.list();
+            session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultadosUsuario;
+    }
     
+    public List<Publicacion> buscarPublicaciones() {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery("select * from publicacion").addEntity(Publicacion.class);
+            resultadosPublicaciones = (ArrayList<Publicacion>) q.list();
+            session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultadosPublicaciones;
+    }
+
     public ArrayList<Publicacion> getResultados() {
         return this.resultados;
     }
-    
+
     public void setResultados(ArrayList<Publicacion> r) {
         this.resultados = r;
     }
-    
+
 }
